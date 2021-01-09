@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="icon" type="image/png" href="../img/logo.png"/>
+    <title>Viespire - Make Photos Breathe</title>
+	<style>
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed,
+		figure, figcaption, footer, header, hgroup,
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure,
+		footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		body {
+			line-height: 1;
+		}
+
+		ol,
+		ul {
+			list-style: none;
+		}
+
+		blockquote,
+		q {
+			quotes: none;
+		}
+
+		blockquote:before,
+		blockquote:after,
+		q:before,
+		q:after {
+			content: '';
+			content: none;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		:root {
+			--white_full: #ffffff;
+			--white: #f1f1f1;
+			--black: #000000;
+			--black_dark: #151515;
+			--black_light: #2a2a2a;
+			--grey_middle: #7c7c7c;
+			--orange_light: #fad961;
+			--orange_middle: #ff9d08;
+			--orange_dark: #f76b1c;
+			--yellow_dark: #ffb646;
+			--blue_dark: #243b55;
+		}
+
+		/* my css */
+
+		*::selection {
+			background: transparent;
+		}
+
+		*::-moz-selection {
+			background: transparent;
+		}
+
+		html,
+		body {
+			overflow-x: hidden;
+		}
+
+		body {
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 1em;
+			font-family: 'Roboto', sans-serif;
+		}
+		body {
+			background: var(--black_dark);
+			-webkit-transition: 1s;
+			-o-transition: 1s;
+			transition: 1s;
+		}
+		* {
+			outline: none;
+		}
+
+		a {
+			text-decoration: none;
+		}
+		.wrapper {
+			width: 1170px;
+			display: block;
+			margin: 0 auto;
+		}
+		@media screen and (min-width: 1140px) and (max-width: 1439px) {
+			.wrapper {
+				width: 1070px;
+			}
+		}
+		@media screen and (min-width: 992px) and (max-width: 1139px) {
+			.wrapper {
+				width: 940px;
+			}
+		}
+		@media screen and (min-width: 768px) and (max-width: 991px) {
+			.wrapper {
+				width: 720px;
+			}
+		}
+		@media screen and (min-width: 576px) and (max-width: 767px) {
+			.wrapper {
+				width: calc(100% - 40px);
+			}
+		}
+		@media screen and (max-width: 575px) {
+			.wrapper {
+				width: calc(100% - 40px);
+			}
+		}
+		/* rules */
+		.container_rules{
+			padding: 40px 0;
+			color: var(--white_full);
+			font-size: 16px;
+			line-height: 20px;
+		}
+		.rules_title h4{
+			font-size: 36px;
+			padding-bottom: 30px;
+			font-weight: 700;
+			line-height: 40px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		.rules_bcramps{
+			padding-bottom: 20px;
+		}
+		.rules_bcramps > ul {
+			display: flex;
+			justify-content: flex-start;
+			align-content: center;
+		}
+		.rules_text p{
+			padding-bottom: 20px;
+		}
+		.rules_bcramps ul li a{
+			color: var(--white_full);
+			position: relative;
+			-webkit-transition: 0.3s;
+			-o-transition: 0.3s;
+			transition: 0.3s;
+		}
+		.rules_bcramps ul li{
+			text-transform: uppercase;
+		}
+		.rules_bcramps ul li a:hover{
+			color: var(--yellow_dark);
+		}
+		.rules_bcramps ul li:first-child{
+			padding-right: 20px;
+		}
+		.rules_bcramps ul li a:after{
+			content:'/';
+			position: absolute;
+			right: -12px;
+			bottom: -1px;
+			color: var(--white_full) !important;
+		}
+		.date_ef{
+			font-style: italic;
+			border-top: 1px solid var(--white_full);
+			text-align: center;
+			padding-top: 10px;
+		}
+		.title_child{
+			font-size: 21px;
+			line-height: 25px;
+			padding-bottom: 20px;
+		}
+		.sub_t{
+			padding-bottom: 20px;
+			font-style: italic;
+		}
+		.rules_text a{
+			color: var(--yellow_dark);
+		}
+		.rules_text ul{
+			border-top: 1px solid var(--white_full);
+			border-bottom: 1px solid var(--white_full);
+			padding: 10px 0;
+			margin-bottom: 20px;
+		}
+		.rules_text ul li{
+			padding: 5px;
+		}
+	</style>
+</head>
+
+<body>
+<div class="container_rules">
+	<div class="wrapper">
+		<div class="rules_bcramps">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li>TERMS AND CONDITIONS OF USE</li>
+			</ul>
+		</div>
+		<div class="rules_title">
+			<h4>Viespire - TERMS AND CONDITIONS OF USE</h4>
+		</div>
+		<div class="rules_text">
+			<p class="date_ef">Effective Date: December 1, 2018</p>
+			<h4 class="title_child">ACCEPTANCE OF TERMS</h4>
+			<p>In order to use certain features of the Service, you must register you profile in the App ("Profile") and provide certain information about yourself as prompted by the registration form. Among other data, you must specify a valid credit card that will be used to make payments to the Company. <br>
+If you register the Profile, you represent and warrant to the Company that: (i) all required registration information you submit is truthful and accurate; (ii) you will maintain the accuracy of such information; and (c) your use of the Service does not violate any applicable law or regulation or these Terms. Otherwise, the Service may not operate correctly, and we may not be able to contact you with important notices. <br>
+The Service should not be used by individuals under age 18. You hereby represent and warrant to the Company that you meet the foregoing qualification. <br>
+The Company reserves the right to suspend or terminate your Profile, or your access to the Service, with or without notice to you, in the event that you breach these Terms.
+You are responsible for maintaining the confidentiality of your Profile login information and are fully responsible for all activities that occur under your Profile. You agree to immediately notify the Company of any unauthorized use, or suspected unauthorized use of your Profile or any other breach of security. The Company cannot and will not be liable for any loss or damage arising from your failure to comply with the above requirements. We will protect your Profile information in accordance with the Privacy Policy. <br>
+By using the Service, you agree to receive certain communications, such updates on the App or a periodic e-mail newsletter from the Company. You can opt-out of non-essential communications by mailing  support@viespire.app or unsubscribing from the email notification.
+</p>
+<h4 class="title_child">SERVICE</h4>
+<p>You acknowledge that all the text, images, marks, logos, compilations (meaning the collection, arrangement and assembly of information), data, other content, software and materials displayed on the Service or used by the Company to operate the Service (including the App and the Content and excluding any User Content (as defined below)) is proprietary to us or to third parties. <br>
+The Company expressly reserves all rights, including all intellectual property rights, in all of the foregoing, and except as expressly permitted by these Terms, any use, redistribution, sale, decompilation, reverse engineering, disassembly, translation or other exploitation of them is strictly prohibited. The provision of the Service does not transfer to you or any third party any rights, title or interest in or to such intellectual property rights.
+The information you submit to us as part of your registration, and any data, text and other material that you submit or post to the App ("User Content") remain your intellectual property, and the Company does not claim any ownership of the copyright or other proprietary rights in such registration information and the User Content. Notwithstanding the foregoing, you agree that the Company may retain copies of all registration information and the User Content and use such information and the User Content as reasonably necessary for or incidental to its operation of the Service and as described in these Terms and the Privacy Policy.
+You grant the Company the non-exclusive, worldwide, transferable, perpetual, irrevocable right to publish, distribute, publicly display and perform the User Content in connection with the Service and as provided for in our Privacy Policy. <br>
+Subject to these Terms, the Company grants you a non-transferable, non-exclusive, license (without the right to sublicense) to (i) use the Service solely for your personal, non-commercial purposes, and (b) install and use the App, solely on your own handheld mobile device (e.g., iPhone, Android, etc. as applicable) and solely for your personal, non-commercial purposes.
+You agree, and represent and warrant, that your use of the Service, or any portion thereof, will be consistent with the foregoing license, covenants and restrictions and will neither infringe nor violate the rights of any other party or breach any contract or legal duty to any other parties. In addition, you agree that нou will comply with all applicable laws, regulations and ordinances relating to the Service or your use of it, and you will be solely responsible for your own individual violations of any such laws. <br>
+You are solely responsible for obtaining the equipment and telecommunication services necessary to access the Service, and all fees associated therewith (such as computing devices and Internet service provider and airtime charges). <br>
+We retain the right to implement any changes to the Service (whether to free or paid features) at any time, with or without notice. You acknowledge that a variety of Company's actions may impair or prevent you from accessing the Service at certain times and/or in the same way, for limited periods or permanently, and agree that the Company has no responsibility or liability as a result of any such actions or results, including, without limitation, for the deletion of, or failure to make available to you, any content or services. <br>
+Your access to and use of the Service is at your own risk. The Company will have no responsibility for any harm to your computing system, loss of data, or other harm to you or any third party, including, without limitation, any bodily harm, that results from your access to or use of the Service, or reliance on any information or advice with respect to any food products.
+The Company has no obligation to provide you with customer support of any kind. However, the Company may provide you with customer support from time to time, at the Company's sole discretion.
+</p>
+<h4 class="title_child">APP STORES, THIRD PARTY ADS, OTHER USERS</h4>
+<p>You acknowledge and agree that the availability of the App is dependent on the third party from which you received the App, e.g., the Apple iTunes App Store, Google Play, and/or other app stores (collectively, "App Stores" and each, an "App Store"). You acknowledge that this Agreement is between you and the Company and not with the App Stores. The Company, not the App Stores, is solely responsible for the App, the content thereof, maintenance, support services, and warranty therefor, and addressing any claims relating thereto (e.g., product liability, legal compliance, or intellectual property infringement). You agree to pay all fees charged by the App Stores in connection with the App. You agree to comply with, and your license to use the App is conditioned upon your compliance with, all applicable agreements, terms of use/service, and other policies of the App Stores. You acknowledge that the App Stores (and their subsidiaries) are a third party beneficiary of these Terms and will have the right to enforce these Terms. <br>
+The Service may contain links to third party sites and advertisements for third parties (collectively, "Third Party Ads"). Such Third Party Ads are not under the control of the Company and the Company is not responsible for any Third Party Ads. The Company provides these Third Party Ads only as a convenience and does not review, approve, monitor, endorse, warrant, or make any representations with respect to Third Party Ads. Advertisements and other information provided by Third Party Sites Ads may not be wholly accurate. You acknowledge sole responsibility for and assume all risk arising from your use of any such websites or resources. When you link to a third party site, the applicable service provider's terms and policies, including privacy and data gathering practices govern. You should make whatever investigation you feel necessary or appropriate before proceeding with any transaction with any third party. Your transactions and other dealings with Third Party Ads that are found on or through the App, including payment and delivery of related goods or services, are solely between you and such merchant or advertiser. <br>
+Each user of the Service is solely responsible for any and all their User Content. Because we do not control User Content, you acknowledge and agree that we are not responsible for any User Content and we make no guarantees regarding the accuracy, currency, suitability, or quality of any User Content, and we assume no responsibility for any User Content. Your interactions with other Service users are solely between you and such user. You agree that the Company will not be responsible for any loss or damage incurred as the result of any such interactions. If there is a dispute between you and any Service user, we are under no obligation to become involved.
+You hereby release us, our officers, employees, agents and successors from claims, demands any and all losses, damages, rights, claims, and actions of any kind including personal injuries, death, and property damage, that is either directly or indirectly related to or arises from any interactions with or conduct of any App Store, any other Service users, or any Third Party Ads.
+In the event that you obtain the App through the any App Store, the following shall apply:
+both parties acknowledge that the agreements in the Terms are concluded between you and the Company only, and not with an App Store, and that an App Store is not responsible for the App;
+you will only use the App in connection with a mobile device that you own or control;
+you acknowledge and agree that an App Store has no obligation whatsoever to furnish any maintenance and support services with respect to the App; <br>
+in the event of any failure of the App to conform to any applicable warranty, including those implied by law, you may notify an App Store of such failure; upon notification, App Store's sole warranty obligation to you will be to refund to you the purchase price, if any, paid for the App / Service; <br>
+you acknowledge and agree that the Company, and not an App Store, is responsible for addressing any claims you or any third party may have in relation to the App;
+you acknowledge and agree that, in the event of any third party claim that the App or your possession and use of the App infringes that third party's intellectual property rights, the Company, and not an App Store, will be responsible for the investigation, defense, settlement and discharge of any such infringement claim; <br>
+you represent and warrant that you are not located in a country subject to a U.S. Government embargo, or that has been designated by the U.S. Government as a "terrorist supporting" country, and that you are not listed on any U.S. Government list of prohibited or restricted parties; and
+both parties acknowledge and agree that, in using the App, you will comply with any applicable third party terms of agreement which may affect or be affected by such use.
+</p>
+<h4 class="title_child">SUBSCRIPTION FEES AND PAYMENT</h4>
+<p>The App is free to download. However, certain features of the Service are offered on a subscription basis for a fee. You will pay the Company or an App Store the applicable fees (and any related taxes) as they become due. <br>
+To the maximum extent permitted by applicable laws, we may change subscription fees at any time. We will give you reasonable notice of any such pricing changes by posting the new prices on or through the App and/or by sending you an email notification. If you do not wish to pay the new fees, you can cancel the applicable subscription prior to the change going into effect.
+You authorize the Company and the App Stores to charge the applicable fees to the payment card that you submit and agree that we may store your payment card information. <br>
+By signing up for certain subscription, you agree that your subscription will be automatically renewed. Unless you cancel your subscription you authorize us and the App Stores to charge you for the renewal term. The period of auto-renewal will be the same as your initial subscription period unless otherwise disclosed to you at the time of subscription purchase. The renewal rate will be no more than the rate for the immediately prior subscription period, excluding any promotional and discount pricing, unless we notify you of a rate change prior to your auto-renewal. You must cancel your subscription in accordance with the cancellation procedures disclosed to you for the particular subscription. We will not refund fees that may have accrued to your account and will not prorate fees for a cancelled subscription. <br>
+From time to time, we may offer a free trial subscription for the Service. Free trial provides you access to the Service for a period of time, with details specified when you sign up for the offer. Unless you cancel before the end of the free trial, or unless otherwise stated, your access to the Service will automatically continue and you will be billed the applicable fees for the Service. We may send you a reminder when your free trial is about to end, but we do not guarantee any such notifications. It is ultimately your responsibility to know when the free trial will end. We reserve the right, in our absolute discretion, to modify or terminate any free trial offer, your access to the Service during the free trial, or any of these terms without notice and with no liability. We reserve the right to limit your ability to take advantage of multiple free trials. <br>
+If you do not pay the fees or charges due, we may make reasonable efforts to notify you and resolve the issue; however, we reserve the right to disable or terminate your access to the Service (and may do so without notice). <br>
+All fees and charges are nonrefundable and there are no refunds or credits for partially used periods. The Service and your rights to use it expire at the end of the paid period of your subscription.
+</p>
+<h4 class="title_child">USER CONDUCT RESTRICTIONS</h4>
+<p>No user of the Service shall submit, upload to, distribute through or otherwise post to the App any material that: <br>
+is libelous, defamatory, threatening, abusive, scandalous, obscene, pornographic or unlawful or that encourages a criminal offense;
+contains any advertising, promotional, solicitation or other commercial material;
+contains material from other copyrighted works without the written consent of the owner of such copyrighted material, other than reasonable excerpts permitted under the copyright doctrine of fair use; <br>
+infringes any copyright or violates any property rights, rights of privacy or publicity, or any other rights of any third party; <br>
+contains any statement, formula, direction, recipe, prescription or other matter that involves a reasonably foreseeable risk of injury or damage to the material's readers or others; or
+contains any software viruses or any other code, file or program that is designed to interrupt, destroy or limit the functionality of any computer software, hardware or telecommunications equipment. <br>
+Neither You nor any other party may, without our prior written permission, deep link to, frame, spider, harvest or scrape the Service or the User Content, or otherwise access the Service or the Content for any purposes, or use any machine, electronic, web-based or similar device to read or extract the Service or the User Content by machine based or automated means.</p>
+<h4 class="title_child">DISCLAIMER OF ALL WARRANTIES</h4>
+<p>THE APP, CONTENT AND OTHER ASPECTS OF THE SERVICE ARE PROVIDED "AS IS" AND "AS AVAILABLE". THE APP, CONTENT AND OTHER ASPECTS OF THE SERVICE ARE PROVIDED WITHOUT REPRESENTATION OR WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF TITLE, NON-INFRINGEMENT, INTEGRATION, MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, AND ANY WARRANTIES IMPLIED BY ANY COURSE OF PERFORMANCE OR USAGE OF TRADE, ALL OF WHICH ARE EXPRESSLY DISCLAIMED. THE COMPANY AND ITS AFFILIATES, LICENSORS AND SUPPLIERS DO NOT WARRANT THAT: (I) THE SERVICE, CONTENT OR OTHER INFORMATION WILL BE TIMELY, ACCURATE, RELIABLE OR CORRECT; (II) THE SERVICE WILL BE SECURE OR AVAILABLE AT ANY PARTICULAR TIME OR PLACE; (III) ANY DEFECTS OR ERRORS WILL BE CORRECTED; (IV) THE SERVICE WILL BE FREE OF VIRUSES OR OTHER HARMFUL COMPONENTS; OR (IV) ANY RESULT OR OUTCOME CAN BE ACHIEVED.
+</p>
+<h4 class="title_child">LIMITATION ON LIABILITY</h4>
+<p>IN NO EVENT SHALL WE (AND OUR AFFILIATES) BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY LOST PROFIT OR ANY INDIRECT, CONSEQUENTIAL, EXEMPLARY, INCIDENTAL, SPECIAL OR PUNITIVE DAMAGES ARISING FROM THESE TERMS OR YOUR USE OF, OR INABILITY TO USE, THE SERVICE (INCLUDING THE APP OR CONTENT), OR THIRD PARTY ADS, EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. ACCESS TO, AND USE OF, THE SERVICE (INCLUDING THE APP, CONTENT AND USER CONTENT), AND THIRD PARTY ADS ARE AT YOUR OWN DISCRETION AND RISK, AND YOU WILL BE SOLELY RESPONSIBLE FOR ANY DAMAGE TO YOUR COMPUTING SYSTEM OR LOSS OF DATA RESULTING THEREFROM. <br>
+NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED HEREIN, YOU AGREE THAT THE AGGREGATE LIABILITY OF THE COMPANY TO YOU FOR ANY AND ALL CLAIMS ARISING FROM THE USE OF THE APP, CONTENT OR SERVICE IS LIMITED TO THE AMOUNTS YOU HAVE PAID TO THE COMPANY FOR ACCESS TO AND USE OF THE SERVICE. THE LIMITATIONS OF DAMAGES SET FORTH ABOVE ARE FUNDAMENTAL ELEMENTS OF THE BASIS OF THE TERMS BETWEEN THE COMPANY AND YOU. <br>
+SOME JURISDICTIONS DO NOT ALLOW THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OF CONSEQUENTIAL DAMAGES, SO THE ABOVE LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU AND YOU MAY ALSO HAVE OTHER LEGAL RIGHTS THAT VARY FROM JURISDICTION TO JURISDICTION.
+</p>
+<h4 class="title_child">INDEMNITY</h4>
+<p>You agree to indemnify and hold the Company, its successors, subsidiaries, affiliates, any related companies, its suppliers, licensors and partners, and the officers, directors, employees, agents and representatives of each of them harmless, including costs and attorneys' fees, from any claim or demand made by any third party due to or arising out of (i) your use of the Service, (ii) your User Content, or (ii) your violation of these Terms. The Company reserves the right, at your expense, to assume the exclusive defense and control of any matter for which you are required to indemnify us and you agree to cooperate with our defense of these claims. You agree not to settle any matter without the prior written consent of the Company. The Company will use reasonable efforts to notify you of any such claim, action or proceeding upon becoming aware of it.</p>
+<h4 class="title_child">INTERNATIONAL USE</h4>
+<p>The Company makes no representation that the Service is accessible, appropriate or legally available for use in your jurisdiction, and accessing and using the Service is prohibited from territories where doing so would be illegal. You access the Service at your own initiative and are responsible for compliance with local laws.</p>
+<h4 class="title_child">APPLICABLE LAW AND JURISDICTION</h4>
+<p>YOU AND THE COMPANY, AND EACH OF OUR RESPECTIVE AGENTS, CORPORATE PARENTS, SUBSIDIARIES, AFFILIATES, PREDECESSORS IN INTEREST, SUCCESSORS AND ASSIGNS, AGREE TO ARBITRATION (EXCEPT FOR MATTERS THAT MAY BE TAKEN TO SMALL CLAIMS COURT), AS THE EXCLUSIVE FORM OF DISPUTE RESOLUTION EXCEPT AS PROVIDED FOR BELOW, FOR ALL DISPUTES AND CLAIMS ARISING OUT OF OR RELATING TO THIS AGREEMENT OR THE SERVICE, UNLESS YOU ARE LOCATED IN A JURISDICTION THAT PROHIBITS THE EXCLUSIVE USE OF ARBITRATION FOR DISPUTE RESOLUTION.</p>
+<p>Arbitration is more informal than a lawsuit in court. Arbitration uses a neutral arbitrator instead of a judge or jury, allows for more limited discovery than in court, and is subject to very limited review by courts. Arbitrators can award the same damages and relief that a court can award. Please visit www.adr.org for more information about arbitration.
+A party intending to seek arbitration must first send to the other, by an international courier with a tracking mechanism, a written notice of intent to arbitrate ("Notice"), or, in the absence of a mailing address provided by you to the Company, via any other method available to the Company, including via e-mail. If you and the Company do not reach an agreement to resolve the claim within 30 days after the Notice is received, then you or the Company may commence an arbitration proceeding as set forth below. <br>
+The arbitration will be in English. A single independent and impartial arbitrator will be appointed. You and the Company agree to comply with the following rules, which are intended to streamline the dispute resolution process and reduce the costs and burdens on the parties: (i) the arbitration will be conducted online and/or be solely based on written submissions, the specific manner to be chosen by the party initiating the arbitration; (ii) the arbitration will not require any personal appearance by the parties or witnesses unless otherwise mutually agreed in writing by the parties; and (iii) any judgment on the award the arbitrator renders may be entered in any court of competent jurisdiction. <br>
+TO THE FULLEST EXTENT PERMITTED UNDER LAW, YOU AND THE COMPANY AGREE THAT YOU AND THE COMPANY MAY BRING CLAIMS AGAINST THE OTHER ONLY IN YOUR OR ITS INDIVIDUAL CAPACITY AND NOT AS A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS OR REPRESENTATIVE PROCEEDING. FURTHER, YOU AGREE THAT THE ARBITRATOR MAY NOT CONSOLIDATE PROCEEDINGS OF MORE THAN ONE PERSON’S CLAIMS, AND MAY NOT OTHERWISE PRESIDE OVER ANY FORM OF A REPRESENTATIVE OR CLASS PROCEEDING, AND THAT IF THIS SPECIFIC PROVISO IS FOUND TO BE UNENFORCEABLE, THEN THE ENTIRETY OF THIS MANDATORY ARBITRATION SECTION WILL BE NULL AND VOID. <br>
+If only the subsection 12.4 above or the entirety of this Section 12 is found to be unenforceable, then the entirety of this Section 12 will be null and void and, in such case, the parties agree that the exclusive jurisdiction and venue described in Section 13 will govern any action arising out of or related to these Terms.</p>
+<h4 class="title_child">GOVERNING LAW</h4>
+<p>The laws of the Company's jurisdiction, excluding its conflicts of law rules, govern these Terms and your use of the Service. Your use of the Service may also be subject to other local, state, national, or international laws. To the extent that any action relating to any dispute hereunder is permitted to be brought in a court of law, such action will be subject to the exclusive jurisdiction of the state and federal courts located in at the Company's location, and you hereby irrevocably submit to personal jurisdiction in such courts, and waive any defense of inconvenient forum.</p>
+<h4 class="title_child">MISCELLANEOUS PROVISIONS</h4>
+<p>No delay or omission by us in exercising any of its rights occurring upon any noncompliance or default by you with respect to these Terms will impair any such right or be construed to be a waiver thereof, and a waiver by the Company of any of the covenants, conditions or agreements to be performed by you will not be construed to be a waiver of any succeeding breach thereof or of any other covenant, condition or agreement hereof contained. <br>
+As used in this Agreement, "including" means "including but not limited to."
+Subject to subsection 12.5, if any provision of these Terms is found to be invalid or unenforceable, then these Terms will remain in full force and effect and will be reformed to be valid and enforceable while reflecting the intent of the parties to the greatest extent permitted by law. <br>
+Except as otherwise expressly provided herein, these Terms set forth the entire agreement between you and the Company regarding its subject matter, and supersedes all prior promises, agreements or representations, whether written or oral, regarding such subject matter. You agree that the electronic text of these Terms constitutes a writing and your assent to the terms and conditions hereof constitutes a "signing" for all purposes. <br>
+In no event shall the Company be liable for any failure to comply with these Terms to the extent that such failure arises from factors outside the Company's reasonable control.</p>
+<h4 class="title_child">AMENDMENTS</h4>
+<p>We reserve the right, at our sole discretion, to modify or replace these Terms (including any Policy), in whole or in part, at any time. We will use reasonable efforts to notify you of any material change at least 30 days in advance of the effective date of any change. Change notices will be communicated via the App or by electronic mail. In any case, you should periodically check these Terms for changes. Continued use of the Service following any such notice of any change to these Terms shall constitute your acceptance of those changes. These Terms may not otherwise be amended, except by a written agreement executed by you and the Company.</p>
+<h4 class="title_child">CONTACT</h4>
+<p>If you want to send any notice under these Terms or have any questions regarding the Service, please contact us at:  support@viespire.app</p>
+
+
+<p class="sub_t" style="color: var(--yellow_dark)">I HAVE READ THESE TERMS AND AGREE TO ALL OF THE PROVISIONS CONTAINED ABOVE.
+</p>
+
+
+
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+</body>
+</html>

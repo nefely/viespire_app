@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>D6D2D377-3633-4845-B66A-75C049746DC8</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FAD961" offset="0%"></stop>
+            <stop stop-color="#F76B1C" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Black-/-White" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Black" transform="translate(-771.000000, -1779.000000)">
+            <g id="HOW-IT-WORK" transform="translate(57.000000, 1506.000000)">
+                <g id="1" transform="translate(703.000000, 262.000000)">
+                    <g id="arrows_stretch_diagonal1-copy-3" transform="translate(31.819805, 31.819805) rotate(-315.000000) translate(-31.819805, -31.819805) translate(17.319805, 1.319805)">
+                        <g id="arrow-1" transform="translate(14.767027, 46.240000) rotate(-45.000000) translate(-14.767027, -46.240000) translate(5.267027, 36.240000)">
+                            <polyline id="Shape" stroke="#F1F1F1" stroke-linecap="round" stroke-linejoin="round" transform="translate(16.586186, 2.539234) rotate(-180.000000) translate(-16.586186, -2.539234) " points="14.5174496 0.472476997 14.5174496 4.60599084 18.6549228 4.60599084"></polyline>
+                            <path d="M16.4773053,2.53923392 L5.44404361,13.5619375" id="Shape" stroke="#F1F1F1" fill="#D8D8D8" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,3,3"></path>
+                            <ellipse id="Oval-5-Copy" fill="#F1F1F1" cx="3.40826332" cy="15.5996595" rx="3.40826332" ry="3.40500182"></ellipse>
+                        </g>
+                        <g id="arrow-1" transform="translate(14.290484, 14.175202) scale(-1, -1) rotate(-45.000000) translate(-14.290484, -14.175202) translate(4.790484, 4.175202)">
+                            <polyline id="Shape" stroke="#F1F1F1" stroke-linecap="round" stroke-linejoin="round" transform="translate(16.586186, 2.539234) rotate(-180.000000) translate(-16.586186, -2.539234) " points="14.5174496 0.472476997 14.5174496 4.60599084 18.6549228 4.60599084"></polyline>
+                            <path d="M16.4773053,2.53923392 L5.44404361,13.5619375" id="Shape" stroke="#F1F1F1" fill="url(#linearGradient-1)" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="3,3,3"></path>
+                            <ellipse id="Oval-5-Copy" fill="#F1F1F1" cx="3.40826332" cy="15.5996595" rx="3.40826332" ry="3.40500182"></ellipse>
+                        </g>
+                        <path d="M9.59282272,29.9219183 L19.3402744,29.9172522" id="Shape" stroke="#F1F1F1" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

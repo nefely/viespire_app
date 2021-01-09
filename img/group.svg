@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="45px" height="45px" viewBox="0 0 45 45" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>ED015A12-4378-4063-AABB-68A35B536E83</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-1">
+            <stop stop-color="#FAD961" offset="0%"></stop>
+            <stop stop-color="#F76B1C" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FAD961" offset="0%"></stop>
+            <stop stop-color="#F76B1C" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Black-/-White" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Black" transform="translate(-365.000000, -2908.000000)">
+            <g id="INTERFACE" transform="translate(279.000000, 2660.000000)">
+                <g id="plus" transform="translate(86.000000, 248.000000)">
+                    <g id="Group">
+                        <circle id="Oval-8-Copy-32" stroke="url(#linearGradient-1)" opacity="0.698058" cx="22.5" cy="22.5" r="22"></circle>
+                        <circle id="Oval-8-Copy-32" fill="url(#linearGradient-2)" cx="22.5" cy="22.5" r="13.5"></circle>
+                        <path d="M22,17 L22,28.9553119" id="Line" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></path>
+                        <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" id="Line" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

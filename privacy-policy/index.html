@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <link rel="icon" type="image/png" href="../img/logo.png"/>
+    <title>Viespire - Make Photos Breathe</title>
+	<style>
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed,
+		figure, figcaption, footer, header, hgroup,
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		/* HTML5 display-role reset for older browsers */
+		article, aside, details, figcaption, figure,
+		footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		body {
+			line-height: 1;
+		}
+
+		ol,
+		ul {
+			list-style: none;
+		}
+
+		blockquote,
+		q {
+			quotes: none;
+		}
+
+		blockquote:before,
+		blockquote:after,
+		q:before,
+		q:after {
+			content: '';
+			content: none;
+		}
+
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		:root {
+			--white_full: #ffffff;
+			--white: #f1f1f1;
+			--black: #000000;
+			--black_dark: #151515;
+			--black_light: #2a2a2a;
+			--grey_middle: #7c7c7c;
+			--orange_light: #fad961;
+			--orange_middle: #ff9d08;
+			--orange_dark: #f76b1c;
+			--yellow_dark: #ffb646;
+			--blue_dark: #243b55;
+		}
+
+		/* my css */
+
+		*::selection {
+			background: transparent;
+		}
+
+		*::-moz-selection {
+			background: transparent;
+		}
+
+		html,
+		body {
+			overflow-x: hidden;
+		}
+
+		body {
+			font-size: 18px;
+			font-weight: 400;
+			line-height: 1em;
+			font-family: 'Roboto', sans-serif;
+		}
+		body {
+			background: var(--black_dark);
+			-webkit-transition: 1s;
+			-o-transition: 1s;
+			transition: 1s;
+		}
+		* {
+			outline: none;
+		}
+
+		a {
+			text-decoration: none;
+		}
+		.wrapper {
+			width: 1170px;
+			display: block;
+			margin: 0 auto;
+		}
+		@media screen and (min-width: 1140px) and (max-width: 1439px) {
+			.wrapper {
+				width: 1070px;
+			}
+		}
+		@media screen and (min-width: 992px) and (max-width: 1139px) {
+			.wrapper {
+				width: 940px;
+			}
+		}
+		@media screen and (min-width: 768px) and (max-width: 991px) {
+			.wrapper {
+				width: 720px;
+			}
+		}
+		@media screen and (min-width: 576px) and (max-width: 767px) {
+			.wrapper {
+				width: calc(100% - 40px);
+			}
+		}
+		@media screen and (max-width: 575px) {
+			.wrapper {
+				width: calc(100% - 40px);
+			}
+		}
+		/* rules */
+		.container_rules{
+			padding: 40px 0;
+			color: var(--white_full);
+			font-size: 16px;
+			line-height: 20px;
+		}
+		.rules_title h4{
+			font-size: 36px;
+			padding-bottom: 30px;
+			font-weight: 700;
+			line-height: 40px;
+			text-align: center;
+			text-transform: uppercase;
+		}
+		.rules_bcramps{
+			padding-bottom: 20px;
+		}
+		.rules_bcramps > ul {
+			display: flex;
+			justify-content: flex-start;
+			align-content: center;
+		}
+		.rules_text p{
+			padding-bottom: 20px;
+		}
+		.rules_bcramps ul li a{
+			color: var(--white_full);
+			position: relative;
+			-webkit-transition: 0.3s;
+			-o-transition: 0.3s;
+			transition: 0.3s;
+		}
+		.rules_bcramps ul li{
+			text-transform: uppercase;
+		}
+		.rules_bcramps ul li a:hover{
+			color: var(--yellow_dark);
+		}
+		.rules_bcramps ul li:first-child{
+			padding-right: 20px;
+		}
+		.rules_bcramps ul li a:after{
+			content:'/';
+			position: absolute;
+			right: -12px;
+			bottom: -1px;
+			color: var(--white_full) !important;
+		}
+		.date_ef{
+			font-style: italic;
+			border-top: 1px solid var(--white_full);
+			text-align: center;
+			padding-top: 10px;
+		}
+		.title_child{
+			font-size: 21px;
+			line-height: 25px;
+			padding-bottom: 20px;
+		}
+		.sub_t{
+			padding-bottom: 20px;
+			font-style: italic;
+		}
+		.rules_text a{
+			color: var(--yellow_dark);
+		}
+		.rules_text ul{
+			border-top: 1px solid var(--white_full);
+			border-bottom: 1px solid var(--white_full);
+			padding: 10px 0;
+			margin-bottom: 20px;
+		}
+		.rules_text ul li{
+			padding: 5px;
+		}
+	</style>
+</head>
+
+<body>
+<div class="container_rules">
+	<div class="wrapper">
+		<div class="rules_bcramps">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li>PRIVACY POLICY</li>
+			</ul>
+		</div>
+		<div class="rules_title">
+			<h4>Viespire - PRIVACY POLICY</h4>
+		</div>
+		<div class="rules_text">
+			<p>This Privacy Policy explains what personal data is collected when you use Viespire: Weight Loss Workouts mobile application (the "Application", "Service"), how such personal data will be used, shared, and how you can control it.</p>
+			<p>If you disagree with the practices described in this Privacy Policy, you should take the necessary steps to delete your account following the setting in Application, if registered, and remove Application from your device.</p>
+			<p>BY USING THE SERVICE, YOU HEREBY WARRANT AND REPRESENT THAT (I) YOU HAVE READ, UNDERSTAND AND AGREE TO THIS PRIVACY POLICY, (II) YOU ARE OVER 16 YEARS OF AGE (OR ARE A PARENT OR GUARDIAN WITH SUCH AUTHORITY TO AGREE TO THIS PRIVACY POLICY FOR THE BENEFIT OF SUCH INDIVIDUAL UNDER 16 YEARS OF AGE).</p>
+			<p>For this Privacy Policy "GDPR" shall mean the General Data Protection Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data.</p>
+			<p>Unless otherwise specified, all references made within this Privacy Policy to the European Union (EU) include all current member states to the European Union and the European Economic Area.</p>
+			<h4 class="title_child">TABLE OF CONTENT</h4>
+			<ul>
+				<li>TYPES OF PERSONAL DATA WE COLLECT</li>
+				<li>FOR WHAT PURPOSES, UNDER WHAT LEGAL BASIS AND HOW WE PROCESS</li>
+				<li>PERSONAL DATA</li>
+				<li>WITH WHOM WE SHARE YOUR PERSONAL DATA</li>
+				<li>PRIVACY RIGHTS</li>
+				<li>SECURITY</li>
+				<li>CHILDREN'S PRIVACY</li>
+				<li>HIPAA</li>
+				<li>INTERNATIONAL DATA TRANSFERS</li>
+				<li>CHANGES TO THIS PRIVACY POLICY</li>
+				<li>CALIFORNIA PRIVACY RIGHTS</li>
+				<li>DATA RETENTION</li>
+				<li>HOW “DO NOT TRACK” REQUESTS ARE HANDLED</li>
+				<li>PERSONAL DATA CONTROLLER</li>
+				<li>CONTACT US</li>
+			</ul>
+
+			<h4 class="title_child">TYPES OF PERSONAL DATA WE COLLECT</h4>
+			<p>We collect data you give us voluntarily in various situations (e.g., when you choose your problem areas or send us an email). We also may receive data about you from third parties (for example, when you sign in via Facebook). Finally, we collect data automatically (e.g. your IP address).</p>
+			
+			<p class="sub_t">Data you give us</p>
+			<p>You provide us information about yourself when you register for and/or use the Service. This information may include: name and surname, data on physical characteristics (including height, weight, body composition, trouble zones of your body), fitness activity data, food preferences (vegetarian/not vegetarian), email address (if you sign up through email).</p>
+			<p>This data not necessarily need to be provided, however without this information the Service will be not adjusted to your preferences.</p>
+			<p class="sub_t">Data provided by third parties</p>
+			<p>We collect data when you register to join the Service (or choose to update your account data) by logging into an account that you already have with Facebook. This function allows us to use the personal data you have already provided to Facebook to create your account on our Service.</p>
+			<p>To create an account on our Service, we ask Facebook the following: profile name, email address, profile image, phone number (in case you registered Facebook account via phone number). For more information, please refer to the Facebook permissions documentation and to the Facebook <a href="https://www.facebook.com/about/privacy/">Data policy.</a></p>
+			<p>This data not necessarily need to be provided to receive our Service, it will be used for your account registration and adjusting the Service to your preferences.</p>
+			<p class="sub_t">Data we collect automatically</p>
+			<p>Usage data</p>
+			<p>The data we receive when you interact with the Service. For example, we log the features, content, you interact with, workouts you do, time and duration of your trainings. Thus, we collect all your fitness activity data and training program progress generated through Application.</p>
+			<p>Device and Location data.</p>
+			<p>We and our service providers may collect data from your mobile device. Examples of data that may be collected and used include: language settings, time zone, type of device, device settings, operating system, ISP or your mobile carrier, hardware ID, Facebook ID. Our service providers may help us approximate your location. They may, for example, use an IP address received from your device to determine approximate location or collect location information from device in accordance with the consent provided by your device.</p>
+			<p>In many cases, your mobile device platform will provide additional tools to allow you to control when your device collects or shares particular categories of information. For example, your mobile device may offer tools to allow you to manage location sharing. By default, the permissions must be granted by you before the respective information is accessed. Once the permission has been given, it can be revoked by you at any time. In order to revoke these permissions, you may refer to the device settings. The exact procedure for controlling app permissions may be dependent on the device and software you use.</p>
+			<p>Please note that the revoking of such permissions might impact the proper functioning of this Application.</p>
+			<p class="sub_t">Advertising data</p>
+			<p>We collect and use your Apple Identifier for Advertising (IDFA) or Google Advertising ID (AAID) to recognize your device and support activities on advertising of our Service. These number values are not permanently tied to your device and, depending on your operating system, you can reset them through your device settings.</p>
+			<p class="sub_t">Analytical data</p>
+			<p>We use third party analytics tools to help us measure traffic and usage trends for the Service. These tools may record data, such as: how often you use Application, referring/exit pages and URLs, device identifiers, events that occur within Application, aggregated usage, performance data.</p>
+			<p class="sub_t">Payment data</p>
+			<p>We collect data about your subscription orders. We do not collect and we are not responsible for the collection or security of payment details. Payment information is processed and stored using third-party companies (such as Apple and Google). These companies can be contacted through their websites: https://www.apple.com and https://play.google.com. Before entering your personal details, we suggest that you read and become familiar with the privacy policy of these third-party companies.</p>
+			<p class="sub_t">Other data</p>
+			<p>Our Service is dynamic, and we often introduce new features, which may require the collection of new information. If we collect materially different personal data, we will notify you and may also modify this Privacy Policy.</p>
+			<p>If you restrict certain data from being collected automatically, we may be unable to provide the Service.</p>
+			<h4 class="title_child">FOR WHAT PURPOSES, UNDER WHAT LEGAL BASIS AND HOW WE PROCESS PERSONAL DATA</h4>
+			<p>Your personal data is collected for the following purposes and using the following services:</p>
+			<p class="sub_t">To provide our Service</p>
+			<p>This includes use of personal data to support delivery of the Service under Terms of Service, to ensure that content provided by Application is presented in the most effective manner, to prevent or address Service errors or technical issues.</p>
+			
+			<p>To host personal data and enable this Application to operate and be distributed we use service Amazon Web Services (AWS). Amazon Web Services (AWS) is a hosting and backend service provided by Amazon.com Inc. This services work through geographically distributed servers, making it difficult to determine the actual location where the personal data are stored. Some of these services work through geographically distributed servers, making it difficult to determine the actual location where the personal data are stored.</p>
+			<p>To monitor infrastructure, we use Crashlytics (Google Inc.). Crashlytics is a monitoring service provided by Google Inc. Personal data collected: Locations data , Advertising data and various types of data as specified in the <a href="https://try.crashlytics.com/terms/privacy-policy.pdf">privacy policy</a> of the service.</p>
+			<p>We use Firebase Performance Monitoring and Firebase Crash Reporting (Google Inc.). These are monitoring services provided by Google, Inc. Personal data collected: various types of data as specified in the <a href="https://policies.google.com/privacy">privacy policy</a> of the service.</p>
+			<p class="sub_t">Processing of personal data for this purpose is based on:</p>
+			<p>6.1. b) of GDPR ("processing is necessary for the performance of a contract to which the data subject is party") and/or</p>
+			<p>6,1 c) GDPR ("processing is necessary for compliance with a legal obligation to which the controller is subject")./</p>
+			<p class="sub_t">To customize your experience</p>
+			<p>We use your personal data, such as physical characteristics and food preferences, to tailor Service content and make offers to your personal preferences.</p>
+			
+			<p class="sub_t">Processing of personal data for this purpose is based on:</p>
+			<p>6.1. f) GDPR ("processing is necessary for compliance with a legal obligation to which the controller is subject").</p>
+			<p class="sub_t">To manage your account and provide you with customer support</p>
+			<p>We may use your personal data to respond to your requests for technical support, Service information or to any other communication you initiate. This includes accessing your account to address technical support requests. Please note that irrespective of your email settings, we may send you notifications pertaining to the performance of our Service, messages about the availability of our Service, security, payment transactions, status of your orders, legal notices regarding revision of our Terms of Use or this Privacy Policy, or other Service-related information.</p>
+			
+			<p class="sub_t">Processing of personal data for this purpose is based on:</p>
+			<p>6.1. b) of GDPR ("processing is necessary for the performance of a contract to which the data subject is party").</p>
+			<p>To communicate with you regarding your use of our Service.</p>
+			<p class="sub_t">We may communicate with you by push-notifications (such as remainders and motivating messages) regarding your performance with our Service or with information on Application to encourage your training and healthy diet. To opt-out of receiving push-notifications you need to change setting on your device.</p>
+			
+			<p>To communicate with you we use Firebase Cloud Messaging (Google Inc.). Firebase Cloud Messaging is a message sending service provided by Google, Inc. Firebase Cloud Messaging allows us to send messages and notifications to you across platforms such as Android and iOS. </p>
+			<p>We also use (i) Firebase Notifications (Google Inc.). Firebase Notifications is a message sending service provided by Google Inc. Firebase Notifications can be integrated with Firebase Analytics to target analytics-based audiences and track opening and conversion events; and (ii) Apple Push Notification service (APNs) (Apple Inc.), that is remote notifications feature provided by Apple Inc. Apple Push Notification allows us to send information to iOS devices.</p>
+			<p>hese services may also collect data concerning the date and time when the message was viewed by you, as well as when you interacted with it, such as by clicking on links included in the message. Google's <a href="https://policies.google.com/privacy">privacy policy</a>. Apple's <a href="https://www.apple.com/privacy/">privacy policy</a>. </p>
+			<p class="sub_t">Processing of personal data for this purpose is based on:</p>
+			<p>6.1. f) GDPR (“processing is necessary for the purposes of the legitimate interests pursued by the controller”), more specifically through that communication we wish to encourage your use of Service, training and healthy diet.</p>
+			<p>To perform research and analysis about your use of Application.</p>
+			<p>This helps us to better understand our business, analyze our operations, maintain, improve, innovate, plan, design and develop Application and our new products. We also use such data for statistical analysis purposes to test and improve our offers.</p>
+			
+			<p>To perform research and analysis about your use of Application we use Appsflyer (AppsFlyer Ltd) Appsflyer is an analytics service provided by AppsFlyer Ltd. Personal Data collected: Device data, Usage data, Advertising data, in-app events, and other provided in <a href="https://www.appsflyer.com/privacy-policy/">privacy policy</a>. <a href="https://www.appsflyer.com/optout">Opt Out</a>.</p>
+			<p>To track and analyze your behavior regarding changes to the structure, text or any other component of this Application, we use Firebase Remote Config (Google Inc.). Firebase Remote Config is an A/B testing and configuration service provided by Google Inc. Personal Data collected: various types of data as specified in this <a href="https://policies.google.com/privacy">privacy policy</a>.</p>
+			<p>To monitor and analyze web traffic, we use Fabric Answers (Google Inc.). Fabric Answers is an analytics service provided by Crashlytics, a business division of Google Inc. In order to understand Google's use of data, consult Google's <a href="https://policies.google.com/technologies/partner-sites">partner policy</a>. This service is designed for mobile apps analytics and can collect various information about your phone, highlighted in the Fabric Answers <a href="https://answers.io/img/onepager/privacy.pdf">privacy policy</a>. Personal data collected: Advertising data and Usage data. You may opt-out of certain Fabric Answers features through applicable device settings.</p>
+			<p>We use Facebook Analytics for Apps (Facebook, Inc.) This service provided by Facebook, Inc. connects data from the Facebook advertising network with actions performed on this Application. <a href="https://www.facebook.com/about/privacy/">Privacy policy</a>.</p>
+			<p>Firebase Analytics is an analytics service provided by Google Inc. In order to understand Google's use of data, consult Google's <a href="https://policies.google.com/technologies/partner-sites">partner policy</a>. Personal data used: Advertising data and Usage data. You may opt-out of certain Firebase features through applicable device settings.</p>
+			<p class="sub_t">Processing of personal data for this purpose is based on:</p>
+			<p>6.1. b) of GDPR ("processing is necessary for the performance of a contract to which the data subject is party") and/or</p>
+			<p>6.1. f) GDPR ("processing is necessary for the purposes of the legitimate interests pursued by the controller"), more specifically, research and analysis about how you use the Service helps us to enable you to enjoy the use of, and easily navigate Application, and/or better understand your needs and interests.</p>
+			<p class="sub_t">To send you marketing communications</p>
+			<p>We may use your personal data to assist us in our marketing campaigns, to provide you with information of commercial or promotional nature concerning this Application or other our products that we think are relevant to you and to enable us to measure the success of our marketing activities. Your email address will be added to the list as a result of signing into this Application. In case you do not want to receive marketing communications from us, you can unsubscribe from them following instructions in a footer of marketing emails.</p>
+			
+			<p class="sub_t">Processing of personal data for this purpose is based on:</p>
+			<p>6.1. f) GDPR ("processing is necessary for the purposes of the legitimate interests pursued by the controller"), more specifically the marketing communication is necessary to inform you about Application, special offers and other our products that we think you might be interested in.</p>
+			<p>To detect and resolve any fraud or other illegal or undesirable user behavior</p>
+			<p>We use personal data to protect the security of our Service, to detect and prevent fraud or abuse, to resolve disputes and to enforce our agreements and contractual commitments. This purpose may also include the processing of personal data to the extent when we have a good faith belief that such processing is reasonably necessary to comply with a law, regulation or compulsory legal request, to protect the safety of any person from death or serious bodily injury.</p>
+			
+			<p class="sub_t">Processing of personal data for this purpose is based on:</p>
+			<p>6. 1. c) GDPR ("processing is necessary for compliance with a legal obligation to which the controller is subject") and/or</p>
+			<p>6. 1. f) GDPR ("processing is necessary for the purposes of the legitimate interests pursued by the controller"), and more specifically, we wish to provide our Service in a safe and harmless manner.</p>
+			<p class="sub_t">To optimize advertising</p>
+			<p>We and our partners may use your personal data to inform, optimize and serve advertising based on your past use of this Application. This activity is performed by tracking Usage data and by using other information that is transferred to the partners that manage the remarketing and behavioral targeting activity. You may opt out of these practices following the information <a href="http://www.networkadvertising.org/mobile-choice">here</a>.</p>
+			
+			<p>Facebook Custom Audience (Facebook, Inc.). Facebook Custom Audience is a remarketing and behavioral targeting service provided by Facebook, Inc. that connects the activity of this Application with the Facebook advertising network. <a href="https://www.facebook.com/help/146952742043748?helpref=related">Opt Out</a></p>
+			<p>Facebook Remarketing is a remarketing and behavioral targeting service provided by Facebook, Inc. that connects the activity of this Application with the Facebook advertising network.  <a href="https://www.facebook.com/help/146952742043748?helpref=related">Opt Out</a></p>
+			<p>AdWords Remarketing (Google Inc.) AdWords Remarketing is a remarketing and behavioral targeting service provided by Google Inc. that connects the activity of this Application with the Adwords advertising network. <a href="https://adssettings.google.com/authenticated">Opt Out</a>.</p>
+			<p>Remarketing through Google Analytics for Display Advertising (Google Inc.) Google Analytics for Display Advertising is a remarketing and behavioral targeting service provided by Google Inc. that connects the tracking activity performed by Google Analytics with the Adwords advertising network and the Doubleclick Cookie. <a href="https://adssettings.google.com/authenticated">Opt Out</a></p>
+			<p>Snapchat Audience Based Match is a remarketing and behavioral targeting service provided by Snapchat, Inc. that connects the activity of this Application with the Snapchat advertising network. <a href="https://support.snapchat.com/en-US/a/advertising-preferences">Opt Out</a></p>
+			<p class="sub_t">Processing of personal data for this purpose is based on:</p>
+			<p>6.1. f) GDPR ("processing is necessary for the purposes of the legitimate interests pursued by the controller"), and more specifically, we wish to provide you useful or interesting, information about Application, special offers and other our products that we think you might be interested in.</p>
+			<p>If we want to use your personal data for a new or different purpose, we will notify you accordingly. We will use your personal data for such other purposes only if and to the extent necessary or permitted by applicable law or with your consent.</p>
+			<h4 class="title_child">WITH WHOM WE SHARE YOUR PERSONAL DATA</h4>
+			<p>We will only disclose your personal data with your knowledge and as stated in this Privacy Policy. This includes disclosures that will enable us to fulfill our obligations to you, and allows us to manage our business operations. Your personal data may be shared as follows:</p>
+			<p>We may share your personal data with your Apple Health Kit or Google Fit (together the "Health App")</p>
+			<p>We may share data about your activity data with Health App applications installed on your device, provided you expressly gave the permission on your device. For more information on the Apple HealthKit, please see http://www.apple.com/ios/health/, and on the Google Fit, please see https://www.google.com/fit/.</p>
+			<p class="sub_t">We share your personal data with service providers</p>
+			<p>We share with service providers your personal data (such as Usage data, Analytical data, Advertising data) to help them and us understand the usage patterns of Service for analytical purposes so that we can better consider new features or otherwise tailor or enhance our Service.</p>
+			<p class="sub_t">You can make your personal data publicly available via Facebook</p>
+			<p>If you choose to do this, we will provide information to Facebook in accordance with your elections. Any personal data or content that you voluntarily disclose for posting on Facebook becomes available to the public.</p>
+			<p class="sub_t">We may share your personal data for safety, legal purposes and law enforcement</p>
+			<p>We use and disclose personal data as we believe necessary under applicable law, to enforce our Terms of Use, to protect our rights, privacy, safety or property, and/or that of our affiliates, you or others, and to respond to requests from courts, law enforcement agencies, regulatory agencies, and other public and government authorities, which may include authorities outside your country of residence.</p>
+			<p class="sub_t">We may share you personal data with third parties in case of change of control</p>
+			<p>As we develop our business, we may buy or sell assets or business offerings. Customer information is generally one of the transferred business assets in these types of transactions. We may also share such information with any affiliated entity (e.g. parent company or subsidiary) and may transfer such information in the course of corporate transaction, such as the sale of our business, a divestiture, merger, consolidation, or asset sale, or in the unlikely event of bankruptcy.</p>
+			<h4 class="title_child">PRIVACY RIGHTS</h4>
+			<p class="sub_t">If you reside in the EU, you may:</p>
+			<p>Delete your personal data: You can ask us to erase or delete all or some of your personal data (e.g., if it is no longer necessary to provide Service to you) through your account or send us an email at support@viespire.app.</p>
+			<p>When you request to delete your personal data, we will use commercially reasonable efforts to honor your request, but please note that we may be required to keep such data and not delete it (or to keep this information for a certain time, in which case we will comply with your deletion request only after we have fulfilled such requirements). When we delete any data, it will be deleted from the active database, but may remain in our archives. We may also retain your information for fraud detection or similar purposes.</p>
+			<p>Change or correct your personal data: You can edit, change, update or fix some of your personal data through your account or send us an email at support@viespire.app.</p>
+			<p>Object to, or limit, or restrict, use of your personal data: You can ask us to stop using all or some of your personal data (e.g., if we have no legal right to keep using it) or to limit our use of it (e.g., if your personal data is inaccurate or unlawfully held) by sending us an email at support@viespire.app.</p>
+			<p>Access your personal data: You can ask us for a copy of your personal data through your account or send us an email at support@viespire.app. You can ask us for a copy of your personal data in machine readable form by sending us an email at support@viespire.app.</p>
+			<p>Lodge a complaint with a supervisory authority: For this you may contact Office of the Commissioner for Personal Data Protection of Cyprus at http://www.dataprotection.gov.cy/.</p>
+			<h4 class="title_child">SECURITY</h4>
+			<p>To protect your personal data, we take reasonable precautions and follow industry mandatory practices to make sure it is not inappropriately lost, misused, accessed, disclosed, altered or destroyed. We will use our reasonable endeavors to ensure the safety of your personal data. However, we cannot guarantee that our systems will not be compromised or interfered with by any third party. You acknowledge that by providing us with your personal data, you do so at your own risk.</p>
+			<p>In the event that personal data is compromised as a result of a breach of security, we will promptly notify those persons whose personal data has been compromised as required by applicable law.</p>
+			<h4 class="title_child">CHILDREN'S PRIVACY</h4>
+			<p>Although our Service is a general audience service, we restrict the use of our Service to individuals age 16 and above. We do not knowingly collect, maintain, or use personal data from children under 16 years of age, and no part of the Service is directed to children under the age of 16. If you learn that your child has provided us with personal data without your consent, you may alert us at support@viespire.app. If we learn that we have collected any personal data from children under 16, we will promptly take steps to delete such information and terminate the child’s account.</p>
+			<h4 class="title_child">HIPAA</h4>
+			<p>Controller is not an entity that is covered by the US Health Insurance Portability and Accountability Act (the "HIPAA"). The HIPAA privacy rules apply to health plans, health care clearinghouses, to any health care provider who transmits health information in electronic form in connection with transactions for which the Secretary of HHS has adopted standards under HIPAA and their service providers. This means that the information that you provide to the Company is not protected by the HIPAA privacy rules and regulations.</p>
+			<h4 class="title_child">NTERNATIONAL DATA TRANSFERS</h4>
+			<p>Viespire is a global business. We may transfer personal data to countries other than the country in which the data was originally collected. These countries may not have the same data protection laws as the country in which you initially provided the information. We deploy safeguards if we transfer personal data originating from the EU to other countries not deemed adequate under applicable data protection law.</p>
+			<p>We process data outside of the EU.</p>
+			<p>In particular, to offer our Services, we need to transfer your personal data to the United States and Ukraine. The United States (except for the <a href="https://ec.europa.eu/info/law/law-topic/data-protection/data-transfers-outside-eu/eu-us-privacy-shield_en">Privacy Shield framework</a>) and Ukraine are not considered to provide an adequate level of protection under EU data protection law. It means that these countries do not have the same data protection laws as the country in which you initially provided the data.</p>
+			<p>In cases prescribed by the applicable law, we use Standard Contractual Clauses approved by the European Commission as a legal mechanism for data transfers from the EU. <a href="https://ec.europa.eu/info/law/law-topic/data-protection/data-transfers-outside-eu/model-contracts-transfer-personal-data-third-countries_en">Learn more</a> about the Standard Contractual Clauses adopted by the European Commission. These clauses are contractual commitments between companies transferring personal data, binding them to protect the privacy and security of the data. These data transfers are necessary to provide the Service set forth in the Terms of Service.</p>
+			<h4 class="title_child">CHANGES TO THIS PRIVACY POLICY</h4>
+			<p>We may modify this Privacy Policy at any time. If we decide to make material changes to this Privacy Policy, we will provide notice through our Service, or by other means, to provide you an opportunity to revise changes before they become effective. If you disagree with the changes to this Privacy Policy, you should stop using Service. Your continued use of our Service after we send a notice about our changes to this Privacy Policy means that you are consenting to the updated Privacy Policy.</p>
+			<h4 class="title_child">CALIFORNIA PRIVACY RIGHTS</h4>
+			<p>Under California’s “Shine the Light” law, California residents who provide personal data in obtaining products or services for personal, family, or household use are entitled to request and obtain from us once a calendar year information about the customer information we shared, if any, with other businesses for their own direct marketing uses.</p>
+			<p>To obtain this information from us, please send an email message to support@viespire.app with “Request for California Privacy Information” on the subject line and in the body of your message. If you are a California resident, we will provide the requested information to you at your email address in response.</p>
+			<p>Please be aware that not all information sharing is covered by the “Shine the Light” requirements and only information on covered sharing will be included in our response.</p>
+			<h4 class="title_child">DATA RETENTION</h4>
+			<p>We will retain your personal data for as long as you maintain an account or as needed to provide you the Service. We will also retain and use your personal data as necessary to comply with our legal obligations, resolve disputes, and enforce our agreements.</p>
+			<h4 class="title_child">HOW “DO NOT TRACK” REQUESTS ARE HANDLED</h4>
+			<p>This Application does not support “Do Not Track” requests. To determine whether any of the third-party services it uses honor the “Do Not Track” requests, please read their privacy policies.</p>
+			<p>If you have any questions about how we protect or use your data, please email us at support@viespire.app</p>
+			<h4 class="title_child">CONTACT US</h4>
+			<p>You may contact us at any time for details regarding this Privacy Policy. For any questions concerning your account or your personal data please contact us at support@viespire.app.</p>
+			<p>This Privacy Policy was posted on 1 December. It is effective upon acceptance for new users, and from December 1, 2018 for all other users. This Privacy Policy is incorporated into, and is subject to the Terms of Use.</p>
+		</div>
+	</div>
+</div>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+</body>
+</html>

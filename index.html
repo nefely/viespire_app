@@ -1,0 +1,2182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#000000" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="description" content="Animate static images. Use special effects and fully customizable animation to make each photo unique.">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Viespire App" />
+    <meta property="og:title" content="Viespire App - Animate Any Image" />
+    <meta property="og:url" content="https://viespire.app/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="Animate static images. Use special effects and fully customizable animation to make each photo unique." />
+    <meta property="og:image" content="https://viespire.app/img/logo.png" />
+    <meta itemprop="name" content="Viespire App" />
+    <meta itemprop="headline" content="Viespire App - Animate Any Image" />
+    <meta itemprop="description" content="Animate static images. Use special effects and fully customizable animation to make each photo unique." />
+    <meta itemprop="image" content="https://viespire.app/img/logo.png" />
+    <meta name="twitter:title" content="Viespire App - Animate Any Image" />
+    <meta name="twitter:url" content="https://viespire.app/" />
+    <meta name="twitter:description" content="Animate static images. Use special effects and fully customizable animation to make each photo unique." />
+    <meta name="twitter:image" content="https://viespire.app/img/logo.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="img/logo.png" />
+    <title>Viespire - Animate Any Image</title>
+    <style>
+        .loader,
+        .loaderArea {
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0
+        }
+
+        ::-webkit-scrollbar {
+            display: none
+        }
+        
+        :root {
+            --white_full: #ffffff;
+            --white: #f1f1f1;
+            --black: #000000;
+            --black_dark: #151515;
+            /* --black_light: #3b3b3b; */
+            --black_light: #3c3c3c;
+            --grey_middle: #636363;
+            --orange_light: #fad961;
+            --orange_middle: #ff9d08;
+            --orange_dark: #f76b1c;
+            --yellow_dark: #ffb646;
+            --blue_dark: #243b55
+        }
+        
+        .loaderArea {
+            display: block;
+            position: fixed;
+            z-index: 1000;
+            background: var(--black_dark)
+        }
+        
+        .header_section,
+        header {
+            background-repeat: no-repeat
+        }
+        
+        .loader {
+            position: relative;
+            display: flex;
+            z-index: 1001;
+            justify-content: center;
+            align-items: center
+        }
+        
+        .wrapper,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+            display: block
+        }
+        
+        .loader img {
+            width: 50px;
+            height: auto;
+            -webkit-transition: .4s;
+            -o-transition: .4s;
+            transition: .4s;
+            opacity: 1;
+            -webkit-animation: rot 1s normal forwards linear infinite;
+            -moz-animation: rot 1s normal forwards linear infinite;
+            animation: rot 1s normal forwards linear infinite
+        }
+        
+        a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font: inherit;
+            vertical-align: baseline
+        }
+        
+        ol,
+        ul {
+            list-style: none
+        }
+        
+        blockquote,
+        q {
+            quotes: none
+        }
+        
+        blockquote:after,
+        blockquote:before,
+        q:after,
+        q:before {
+            content: '';
+            content: none
+        }
+        
+        .video_top:after,
+        header:before {
+            content: ''
+        }
+        
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+        
+        ::selection {
+            background: 0 0
+        }
+        
+        ::-moz-selection {
+            background: 0 0
+        }
+        
+        body,
+        html {
+            overflow-x: hidden
+        }
+        
+        body {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1em;
+            font-family: Roboto, sans-serif
+        }
+        
+        * {
+            outline: 0
+        }
+        
+        a {
+            text-decoration: none
+        }
+        
+        .wrapper {
+            width: 1170px;
+            margin: 0 auto
+        }
+        
+        .dfsb {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap
+        }
+        
+        .s10 {
+            width: 10%
+        }
+        
+        .s20 {
+            width: 20%
+        }
+        
+        .s30 {
+            width: 30%
+        }
+        
+        .s40 {
+            width: 40%
+        }
+        
+        .s50 {
+            width: 50%
+        }
+        
+        .s60 {
+            width: 60%
+        }
+        
+        .s70 {
+            width: 70%
+        }
+        
+        .s80 {
+            width: 80%
+        }
+        
+        .s90 {
+            width: 90%
+        }
+        
+        .s100 {
+            width: 100%
+        }
+        
+        .s5 {
+            width: 5%
+        }
+        
+        .s15 {
+            width: 15%
+        }
+        
+        .s25 {
+            width: 25%
+        }
+        
+        .s35 {
+            width: 35%
+        }
+        
+        .s45 {
+            width: 45%
+        }
+        
+        .s55 {
+            width: 55%
+        }
+        
+        .s65 {
+            width: 65%
+        }
+        
+        .s75 {
+            width: 75%
+        }
+        
+        .s85 {
+            width: 85%
+        }
+        
+        .s95 {
+            width: 95%
+        }
+        
+        @-webkit-keyframes rot {
+            0% {
+                transform: rotate(0)
+            }
+            25% {
+                transform: rotate(90deg)
+            }
+            50% {
+                transform: rotate(180deg)
+            }
+            75% {
+                transform: rotate(270deg)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+        
+        @-moz-keyframes rot {
+            0% {
+                transform: rotate(0)
+            }
+            25% {
+                transform: rotate(90deg)
+            }
+            50% {
+                transform: rotate(180deg)
+            }
+            75% {
+                transform: rotate(270deg)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+        
+        @keyframes rot {
+            0% {
+                transform: rotate(0)
+            }
+            25% {
+                transform: rotate(90deg)
+            }
+            50% {
+                transform: rotate(180deg)
+            }
+            75% {
+                transform: rotate(270deg)
+            }
+            100% {
+                transform: rotate(360deg)
+            }
+        }
+        
+        .loader_visible img {
+            width: 250px;
+            opacity: 0
+        }
+        
+        .header_section {
+            background-image: url(img/img-2367.png);
+            background-position: right -10px;
+            background-size: 60% auto;
+            height: auto
+        }
+        
+        header {
+            padding: 12px 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            position: absolute;
+            overflow: hidden;
+            background-position: top right;
+            background: inherit
+        }
+        
+        header:before {
+            width: calc(100% + 80px);
+            height: calc(100% + 20px);
+            background: inherit;
+            position: absolute;
+            filter: blur(10px);
+            top: -10px;
+            right: -30px
+        }
+        
+        header>.wrapper {
+            z-index: 30;
+            position: relative
+        }
+        
+        .logo img {
+            width: 55px
+        }
+        
+        .logo>a {
+            font-size: 24px;
+            font-weight: 500
+        }
+        
+        .logo>a>span {
+            padding-left: 10px;
+            letter-spacing: .2px
+        }
+        
+        .navigation>li>a {
+            padding: 0 30px;
+            font-size: 14px;
+            text-transform: uppercase;
+            -webkit-transition: .3s;
+            -o-transition: .3s;
+            transition: .3s
+        }
+        
+        .trigger_round,
+        .trigger_theme {
+            -webkit-transition: 1s;
+            -o-transition: 1s
+        }
+        
+        .navigation>li:nth-child(5)>a {
+            padding-left: 100px
+        }
+        
+        .navigation>li:nth-child(5)>a>img {
+            height: 38px
+        }
+        
+        .trigger_mobile {
+            display: none
+        }
+        
+        .trigger_theme {
+            height: 40px;
+            width: 100px;
+            padding: 0 15px;
+            border-radius: 40px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            cursor: pointer;
+            transition: 1s
+        }
+        
+        .intro_block_left_container h1,
+        .intro_block_left_container p {
+            letter-spacing: .5px;
+            padding-bottom: 30px
+        }
+        
+        .intro_block_left_container p {
+            font-weight: 300
+        }
+        
+        .trigger_round {
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            position: absolute;
+            left: calc(100% - 35px);
+            transition: 1s
+        }
+        
+        .trigger_round.trigger_round_left {
+            left: 5px;
+            background: linear-gradient(-45deg, #fad961, #f76b1c, #C7FCF8, #18B6F4);
+            background-size: 400% 400%;
+            -webkit-animation: Gradient 1s linear;
+            -moz-animation: Gradient 1s linear;
+            animation: Gradient 1s linear
+        }
+        
+        .trigger_text {
+            position: absolute;
+            left: 15px;
+            -webkit-transition: 1s;
+            -o-transition: 1s;
+            transition: 1s
+        }
+        
+        .trigger_text.trigger_text_right {
+            left: calc(100% - 55px)
+        }
+        
+        @-webkit-keyframes Gradient {
+            0% {
+                background-position: 0 50%;
+                transform: rotate(90deg)
+            }
+            10% {
+                background-position: 100% 50%
+            }
+            90% {
+                background-position: 0 50%;
+                transform: rotate(0)
+            }
+        }
+        
+        @-moz-keyframes Gradient {
+            0% {
+                background-position: 0 50%;
+                transform: rotate(90deg)
+            }
+            10% {
+                background-position: 100% 50%
+            }
+            90% {
+                background-position: 0 50%;
+                transform: rotate(0)
+            }
+        }
+        
+        @keyframes Gradient {
+            0% {
+                background-position: 0 50%;
+                transform: rotate(90deg)
+            }
+            10% {
+                background-position: 100% 50%
+            }
+            90% {
+                background-position: 0 50%;
+                transform: rotate(0)
+            }
+        }
+        
+        .trigger_round {
+            background: linear-gradient(-55deg, #C7FCF8, #18B6F4, #fad961, #f76b1c);
+            background-size: 400% 400%;
+            -webkit-animation: Gradient_s 1s linear;
+            -moz-animation: Gradient_s 1s linear;
+            animation: Gradient_s 1s linear
+        }
+        
+        @-webkit-keyframes Gradient_s {
+            0% {
+                background-position: 0 50%;
+                transform: rotate(0)
+            }
+            10% {
+                background-position: 100% 50%
+            }
+            90% {
+                background-position: 0 50%;
+                transform: rotate(90deg)
+            }
+        }
+        
+        @-moz-keyframes Gradient_s {
+            0% {
+                background-position: 0 50%;
+                transform: rotate(0)
+            }
+            10% {
+                background-position: 100% 50%
+            }
+            90% {
+                background-position: 0 50%;
+                transform: rotate(90deg)
+            }
+        }
+        
+        @keyframes Gradient_s {
+            0% {
+                background-position: 0 50%;
+                transform: rotate(0)
+            }
+            10% {
+                background-position: 100% 50%
+            }
+            90% {
+                background-position: 0 50%;
+                transform: rotate(90deg)
+            }
+        }
+        
+        .mobile_menu {
+            display: none
+        }
+        
+        .mobile_menu button {
+            border: 0;
+            background: 0 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+        
+        .mobile_menu button img {
+            width: 100%;
+            height: auto
+        }
+        
+        .intro {
+            height: 900px;
+            background-image: url(img/img-2367.png);
+            background-repeat: no-repeat;
+            background-position: right -10px;
+            background-size: 60% auto
+        }
+        
+        .intro>.wrapper,
+        .intro>.wrapper>.intro_block {
+            height: 100%
+        }
+        
+        .intro_block_left {
+            width: 45%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            position: absolute
+        }
+        
+        .intro_block_left_container h1 {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 46px
+        }
+        
+        .intro_block_left_container p svg {
+            width: 200px;
+            min-width: 200px;
+            height: auto
+        }
+        
+        .intro_block_right {
+            position: relative;
+            height: 100%;
+            margin-left: 30%
+        }
+        
+        .intro_block_right img,
+        .intro_block_right video {
+            width: 300px;
+            height: auto;
+            position: absolute;
+            bottom: calc((300px - 12.5vw) - 2px);
+            right: calc(50% - 355px)
+        }
+        
+        .video_top:after {
+            position: absolute;
+            display: block;
+            background: url(img/device_1.png);
+            background-size: 100% 100%;
+            width: 374px;
+            height: 686px;
+            bottom: calc((300px - 12.5vw) - 20px);
+            right: calc(50% - 392px)
+        }
+        
+        .figure_anim {
+            background: 0 0;
+            margin-bottom: 40px
+        }
+        
+        .figure_block {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: center
+        }
+        
+        @media screen and (min-width:1600px) and (max-width:1820px) {
+            .intro_block_right img,
+            .intro_block_right video {
+                right: calc(50% - 325px)
+            }
+            .video_top:after {
+                right: calc(50% - 361px)
+            }
+        }
+        
+        @media screen and (min-width:1400px) and (max-width:1599px) {
+            .intro_block_right img,
+            .intro_block_right video {
+                right: calc(50% - 285px)
+            }
+            .video_top:after {
+                right: calc(50% - 321px)
+            }
+        }
+        
+        @media screen and (min-width:1140px) and (max-width:1439px) {
+            .wrapper {
+                width: 1070px
+            }
+            .navigation>li>a {
+                padding: 0 20px
+            }
+            .navigation>li:nth-child(5)>a {
+                padding-left: 100px
+            }
+            .intro {
+                height: 780px
+            }
+            .intro_block_right img,
+            .intro_block_right video {
+                bottom: calc((300px - 16.5vw) - 3px);
+                right: calc(50% - 256px);
+                width: 242px
+            }
+            .video_top:after {
+                bottom: calc((300px - 16.5vw) - 20px);
+                right: calc(50% - 287px);
+                width: 303px;
+                height: 558px
+            }
+            .intro_block_left_container {
+                padding-left: 40px
+            }
+        }
+        
+        @media screen and (min-width:992px) and (max-width:1139px) {
+            header:before,
+            nav {
+                position: absolute
+            }
+            header,
+            nav {
+                background: var(--black)
+            }
+            .video_top:after,
+            header:before {
+                content: ''
+            }
+            .wrapper {
+                width: 940px
+            }
+            header {
+                position: relative;
+                overflow: visible;
+                padding: 7px 0
+            }
+            header:before {
+                width: calc(100% + 110px);
+                height: calc(100% + 0px);
+                background: inherit;
+                filter: blur(0);
+                top: -10px;
+                right: -10px;
+                box-shadow: inset 0 0 0 0 rgba(241, 241, 241, .2)!important;
+                -webkit-transition: 0s!important;
+                -o-transition: 0s!important;
+                transition: 0s!important
+            }
+            nav {
+                display: none;
+                width: 100vw;
+                left: 0;
+                top: 62px;
+                z-index: 10;
+                margin-left: calc((100vw - 940px)/ 2 * (-1));
+                padding: 20px 0 40px
+            }
+            .intro_block_left,
+            .video_top {
+                position: relative
+            }
+            nav:before {
+                box-shadow: inset 0 0 0 0 rgba(241, 241, 241, .2);
+                display: block;
+                -webkit-transition: 1s;
+                -o-transition: 1s;
+                transition: 1s
+            }
+            .navigation {
+                width: 100%
+            }
+            .navigation>li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                text-align: center
+            }
+            .navigation>li:nth-child(5)>a,
+            .navigation>li:nth-child(6) {
+                padding-left: 0;
+                display: none
+            }
+            .navigation>li>a {
+                padding: 20px 0
+            }
+            .mobile_menu {
+                display: block
+            }
+            .trigger_mobile {
+                display: block;
+                align-items: center;
+                justify-content: center;
+                margin-left: -115px
+            }
+            .trigger_mobile .trigger {
+                display: flex;
+                justify-content: center;
+                align-items: center
+            }
+            body.body_light .intro {
+                background: url(img/img_mob_bg_full.png) center bottom no-repeat;
+                background-size: cover
+            }
+            .intro {
+                background: url(img/img_mob_bg_full.png) center bottom no-repeat;
+                background-size: cover;
+                -webkit-transition: .3s!important;
+                -o-transition: .3s!important;
+                transition: .3s!important
+            }
+            .intro_block_left {
+                width: 100%;
+                height: auto;
+                justify-content: center
+            }
+            .intro_block_left_container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                -webkit-flex-wrap: wrap;
+                -moz-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                -o-flex-wrap: wrap;
+                flex-wrap: wrap
+            }
+            .intro_block_left_container p {
+                width: 51%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                -webkit-flex-wrap: wrap;
+                -moz-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                -o-flex-wrap: wrap;
+                flex-wrap: wrap
+            }
+            .intro_block_left_container p:last-child {
+                padding-bottom: 0
+            }
+            .intro_block_left_container h1 {
+                width: 100%;
+                text-align: center;
+                margin-top: 40px
+            }
+            .intro_block_right {
+                width: 100%!important;
+                margin-left: 0;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: -80px
+            }
+            .intro_block_right img,
+            .intro_block_right video {
+                position: relative;
+                bottom: -20px;
+                right: 0;
+                width: 220px
+            }
+            .video_top:after {
+                position: absolute;
+                display: block;
+                background: url(img/device_1.png);
+                background-size: 100% 100%;
+                width: 272px;
+                height: 506px;
+                left: -27px;
+                top: 4px
+            }
+            .figure_anim {
+                margin-top: 20px;
+                margin-bottom: 20px
+            }
+        }
+        
+        @media screen and (min-width:768px) and (max-width:991px) {
+            header:before,
+            nav {
+                position: absolute
+            }
+            header,
+            nav {
+                background: var(--black)
+            }
+            .video_top:after,
+            header:before {
+                content: ''
+            }
+            .wrapper {
+                width: 720px
+            }
+            header {
+                position: relative;
+                overflow: visible;
+                padding: 7px 0
+            }
+            header:before {
+                width: calc(100% + 110px);
+                height: calc(100% + 0px);
+                background: inherit;
+                filter: blur(0);
+                top: -10px;
+                right: -10px;
+                box-shadow: inset 0 0 0 0 rgba(241, 241, 241, .2)!important;
+                -webkit-transition: 0s!important;
+                -o-transition: 0s!important;
+                transition: 0s!important
+            }
+            nav {
+                display: none;
+                width: 100vw;
+                left: 0;
+                top: 62px;
+                z-index: 10;
+                margin-left: calc((100vw - 720px)/ 2 * (-1));
+                padding: 20px 0 40px
+            }
+            .intro_block_left,
+            .video_top {
+                position: relative
+            }
+            nav:before {
+                box-shadow: inset 0 0 0 0 rgba(241, 241, 241, .2);
+                display: block;
+                -webkit-transition: 1s;
+                -o-transition: 1s;
+                transition: 1s
+            }
+            .navigation {
+                width: 100%
+            }
+            .navigation>li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                text-align: center
+            }
+            .navigation>li:nth-child(5)>a,
+            .navigation>li:nth-child(6) {
+                padding-left: 0;
+                display: none
+            }
+            .navigation>li>a {
+                padding: 20px 0
+            }
+            .mobile_menu {
+                display: block
+            }
+            .trigger_mobile {
+                display: block;
+                align-items: center;
+                justify-content: center;
+                margin-left: -115px
+            }
+            .trigger_mobile .trigger {
+                display: flex;
+                justify-content: center;
+                align-items: center
+            }
+            body.body_light .intro {
+                background: url(img/img_mob_bg_full.png) center bottom no-repeat;
+                background-size: cover
+            }
+            .intro {
+                background: url(img/img_mob_bg_full.png) center bottom no-repeat;
+                background-size: cover;
+                -webkit-transition: .3s!important;
+                -o-transition: .3s!important;
+                transition: .3s!important
+            }
+            .intro_block_left {
+                width: 100%;
+                height: auto;
+                justify-content: center
+            }
+            .intro_block_left_container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                -webkit-flex-wrap: wrap;
+                -moz-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                -o-flex-wrap: wrap;
+                flex-wrap: wrap
+            }
+            .intro_block_left_container p {
+                width: 80%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                -webkit-flex-wrap: wrap;
+                -moz-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                -o-flex-wrap: wrap;
+                flex-wrap: wrap
+            }
+            .intro_block_left_container p:last-child {
+                padding-bottom: 0
+            }
+            .intro_block_left_container h1 {
+                width: 100%;
+                text-align: center;
+                margin-top: 40px
+            }
+            .intro_block_right {
+                width: 100%!important;
+                margin-left: 0;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: -80px
+            }
+            .intro_block_right img,
+            .intro_block_right video {
+                position: relative;
+                bottom: -20px;
+                right: 0;
+                width: 220px
+            }
+            .video_top:after {
+                position: absolute;
+                display: block;
+                background: url(img/device_1.png);
+                background-size: 100% 100%;
+                width: 272px;
+                height: 506px;
+                left: -27px;
+                top: 4px
+            }
+            .figure_anim {
+                margin-top: 20px;
+                margin-bottom: 20px
+            }
+        }
+        
+        @media screen and (min-width:576px) and (max-width:767px) {
+            header:before,
+            nav {
+                position: absolute
+            }
+            header,
+            nav {
+                background: var(--black)
+            }
+            .video_top:after,
+            header:before {
+                content: ''
+            }
+            .wrapper {
+                width: calc(100% - 40px)
+            }
+            .howitworks_title>h2 {
+                font-size: 28px;
+                line-height: 32px
+            }
+            header {
+                position: relative;
+                overflow: visible;
+                padding: 7px 0
+            }
+            header:before {
+                width: calc(100% + 110px);
+                height: calc(100% + 0px);
+                background: inherit;
+                filter: blur(0);
+                top: -10px;
+                right: -10px;
+                box-shadow: inset 0 0 0 0 rgba(241, 241, 241, .2)!important;
+                -webkit-transition: 0s!important;
+                -o-transition: 0s!important;
+                transition: 0s!important
+            }
+            nav {
+                display: none;
+                width: 100vw;
+                left: 0;
+                top: 62px;
+                z-index: 10;
+                margin-left: calc((100vw - 100%)/ 2 * (-1));
+                padding: 20px 0 40px
+            }
+            .intro_block_left,
+            .video_top {
+                position: relative
+            }
+            nav:before {
+                box-shadow: inset 0 0 0 0 rgba(241, 241, 241, .2);
+                display: block;
+                -webkit-transition: 1s;
+                -o-transition: 1s;
+                transition: 1s
+            }
+            .navigation {
+                width: 100%
+            }
+            .navigation>li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                text-align: center
+            }
+            .navigation>li:nth-child(5)>a,
+            .navigation>li:nth-child(6) {
+                padding-left: 0;
+                display: none
+            }
+            .navigation>li>a {
+                padding: 20px 0
+            }
+            .mobile_menu {
+                display: block
+            }
+            .trigger_mobile {
+                display: block;
+                align-items: center;
+                justify-content: center;
+                margin-left: -115px
+            }
+            .trigger_mobile .trigger {
+                display: flex;
+                justify-content: center;
+                align-items: center
+            }
+            .intro_block_left_container h1 {
+                font-size: 32px;
+                line-height: 36px
+            }
+            body.body_light .intro {
+                background: url(img/img_mob_bg_full.png) center bottom no-repeat;
+                background-size: cover
+            }
+            .intro {
+                background: url(img/img_mob_bg_full.png) center bottom no-repeat;
+                background-size: cover;
+                -webkit-transition: .3s!important;
+                -o-transition: .3s!important;
+                transition: .3s!important
+            }
+            .intro_block_left {
+                width: 100%;
+                height: auto;
+                justify-content: center
+            }
+            .intro_block_left_container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                -webkit-flex-wrap: wrap;
+                -moz-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                -o-flex-wrap: wrap;
+                flex-wrap: wrap
+            }
+            .intro_block_left_container p {
+                font-size: 16px;
+                line-height: 18px;
+                width: 80%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                -webkit-flex-wrap: wrap;
+                -moz-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                -o-flex-wrap: wrap;
+                flex-wrap: wrap
+            }
+            .intro_block_left_container p:last-child {
+                padding-bottom: 0
+            }
+            .intro_block_left_container h1 {
+                width: 100%;
+                text-align: center;
+                margin-top: 40px
+            }
+            .intro_block_right {
+                width: 100%!important;
+                margin-left: 0;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: -80px
+            }
+            .intro_block_right img,
+            .intro_block_right video {
+                position: relative;
+                bottom: -20px;
+                right: 0;
+                width: 220px
+            }
+            .video_top:after {
+                position: absolute;
+                display: block;
+                background: url(img/device_1.png);
+                background-size: 100% 100%;
+                width: 272px;
+                height: 506px;
+                left: -27px;
+                top: 4px
+            }
+            .figure_anim {
+                margin-top: 20px;
+                margin-bottom: 20px
+            }
+        }
+        
+        @media screen and (max-width:575px) {
+            header:before,
+            nav {
+                position: absolute
+            }
+            header,
+            nav {
+                background: var(--black)
+            }
+            .video_top:after,
+            header:before {
+                content: ''
+            }
+            .wrapper {
+                width: calc(100% - 40px)
+            }
+            .mobile_menu button {
+                width: 45px;
+                height: 45px;
+                -webkit-transition: .3s;
+                -o-transition: .3s;
+                transition: .3s
+            }
+            .mobile_menu button img {
+                min-width: 100%;
+                max-width: 100%;
+                min-height: auto;
+                max-height: inherit;
+                width: 100%;
+                height: auto;
+                -webkit-transition: .3s;
+                -o-transition: .3s;
+                transition: .3s
+            }
+            .logo img {
+                width: 45px
+            }
+            .logo>a>span {
+                font-size: 16px;
+                margin-bottom: -3px;
+                display: none
+            }
+            header {
+                position: relative;
+                overflow: visible;
+                padding: 7px 0
+            }
+            header:before {
+                width: calc(100% + 110px);
+                height: calc(100% + 0px);
+                background: inherit;
+                filter: blur(0);
+                top: -10px;
+                right: -10px;
+                box-shadow: inset 0 0 0 0 rgba(241, 241, 241, .2)!important;
+                -webkit-transition: 0s!important;
+                -o-transition: 0s!important;
+                transition: 0s!important
+            }
+            nav {
+                display: none;
+                width: 100vw;
+                left: 0;
+                top: 51px;
+                z-index: 10;
+                margin-left: calc((100vw - 100%)/ 2 * (-1));
+                padding: 20px 0 40px
+            }
+            .intro_block_left,
+            .video_top {
+                position: relative
+            }
+            nav:before {
+                box-shadow: inset 0 0 0 0 rgba(241, 241, 241, .2);
+                display: block;
+                -webkit-transition: 1s;
+                -o-transition: 1s;
+                transition: 1s
+            }
+            .navigation {
+                width: 100%
+            }
+            .navigation>li {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                text-align: center
+            }
+            .navigation>li:nth-child(5)>a,
+            .navigation>li:nth-child(6) {
+                padding-left: 0;
+                display: none
+            }
+            .navigation>li>a {
+                padding: 20px 0
+            }
+            .mobile_menu {
+                display: block
+            }
+            .trigger_mobile {
+                display: block;
+                align-items: center;
+                justify-content: center;
+                margin-left: 0
+            }
+            .trigger_mobile .trigger {
+                display: flex;
+                justify-content: center;
+                align-items: center
+            }
+            body.body_light .intro {
+                background: url(img/img_mob_bg_full.png) center bottom no-repeat;
+                background-size: cover
+            }
+            .intro {
+                background: url(img/img_mob_bg_full.png) center bottom no-repeat;
+                background-size: cover;
+                -webkit-transition: .3s!important;
+                -o-transition: .3s!important;
+                transition: .3s!important
+            }
+            .intro_block_left {
+                width: 100%;
+                height: auto;
+                justify-content: center
+            }
+            .intro_block_left_container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                -webkit-flex-wrap: wrap;
+                -moz-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                -o-flex-wrap: wrap;
+                flex-wrap: wrap
+            }
+            .intro_block_left_container p {
+                width: 100%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                -webkit-flex-wrap: wrap;
+                -moz-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                -o-flex-wrap: wrap;
+                flex-wrap: wrap
+            }
+            .intro_block_left_container p:last-child {
+                padding-bottom: 0
+            }
+            .intro_block_left_container h1 {
+                width: 100%;
+                text-align: center;
+                margin-top: 40px;
+                font-size: 30px;
+                line-height: 34px
+            }
+            .intro_block_right {
+                width: 100%!important;
+                margin-left: 0;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: -80px
+            }
+            .intro_block_left_container p {
+                font-size: 16px;
+                line-height: 18px
+            }
+            .intro_block_right img,
+            .intro_block_right video {
+                position: relative;
+                bottom: -20px;
+                right: 0;
+                width: 220px
+            }
+            .video_top:after {
+                position: absolute;
+                display: block;
+                background: url(img/device_1.png);
+                background-size: 100% 100%;
+                width: 272px;
+                height: 506px;
+                left: -27px;
+                top: 4px
+            }
+            .figure_anim {
+                margin-top: 20px;
+                margin-bottom: 20px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loaderArea">
+        <div class="loader"> <img src="img/logo.svg" alt=""> </div>
+    </div>
+    <div class="header_section">
+        <header>
+            <div class="wrapper dfsb">
+                <div class="logo">
+                    <a href="#" class="dfsb"> <img src="img/logo.svg" alt="logo"> <span>Viespire</span> </a>
+                </div>
+                <ul class="trigger_mobile">
+                    <li class="trigger">
+                        <div class="trigger_theme">
+                            <p class="trigger_text">Light</p>
+                            <div class="trigger_round"></div>
+                        </div>
+                    </li>
+                </ul>
+                <nav>
+                    <ul class="navigation dfsb">
+                        <li><a href="#yak1">Home</a></li>
+                        <li><a href="#yak2">How it Works</a></li>
+                        <li><a href="#yak3">About</a></li>
+                        <li><a href="#yak4">Contact</a></li>
+                        <li>
+                            <a onclick="trackOutboundLink('https://itunes.apple.com/ua/app/viespire/id1411979178?mt=8')" href="https://itunes.apple.com/ua/app/viespire/id1411979178?mt=8" class="dfsb app_link"><img src="img/apple-outline-white.svg" alt=""></a>
+                        </li>
+                        <li class="trigger">
+                            <div class="trigger_theme">
+                                <p class="trigger_text">Light</p>
+                                <div class="trigger_round"></div>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="mobile_menu">
+                    <button><img src="img/menu.png" alt="mobile menu"></button>
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="intro" id="yak1">
+        <div class="wrapper">
+            <div class="intro_block dfsb">
+                <div class="intro_block_left s30">
+                    <div class="intro_block_left_container">
+                        <h1>Viespire - Animate Any Image</h1>
+                        <p>Start breathing life into your static images. Scroll down to see some masterpieces created via Viespire. Download the app from App Store, here</p>
+                        <p>
+                            <a onclick="trackOutboundLink('https://itunes.apple.com/ua/app/viespire/id1411979178?mt=8')" href="https://itunes.apple.com/ua/app/viespire/id1411979178?mt=8">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="132px" height="38px" viewBox="0 0 132 38" version="1.1">
+                                    <defs/>
+                                    <g id="Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(-1038.000000, -21.000000)">
+                                            <g id="Header" transform="translate(0.000000, -51.000000)">
+                                                <g id="Menu" transform="translate(139.000000, 63.000000)">
+                                                    <g transform="translate(899.000000, 9.000000)">
+                                                        <g id="Apple-badge--outline">
+                                                            <path class="path_color" d="M1,18.8492063 C1,28.7084779 8.99248055,36.6984127 18.8536304,36.6984127 L55.8608986,36.6984127 C64.4809528,36.6984127 64.4809528,36.6984127 74.7210197,36.6984127 C84.9545222,36.6984127 84.9545222,36.6984127 93.5711255,36.6984127 L113.143404,36.6984127 C123.008722,36.6984127 131,28.7087705 131,18.8492063 C131,8.98979955 123.012483,1 113.15776,1 L18.8422404,1 C8.98627162,1 1,8.990155 1,18.8492063 Z" id="bg" stroke="#F1F1F1" stroke-width="2" />
+                                                            <g id="Apple" transform="translate(13.323064, 4.758565)" fill="#F1F1F1">
+                                                                <path d="M16.8630018,13.3079422 C16.8350615,10.2185617 19.4229657,8.71502846 19.541053,8.64521784 C18.0755053,6.53370701 15.8039063,6.24508697 15.0052355,6.22164311 C13.0973875,6.02367268 11.2470017,7.3500745 10.2748902,7.3500745 C9.28327315,7.3500745 7.78662205,6.24091917 6.17346518,6.27374058 C4.09797544,6.30552005 2.15586108,7.4928216 1.09096668,9.33707236 C-1.10682777,13.0979894 0.5321607,18.623969 2.63822662,21.6638569 C3.69152317,23.1533238 4.92247784,24.8147124 6.53352601,24.7558423 C8.1097806,24.6928043 8.69863558,23.7639063 10.6006846,23.7639063 C12.4853368,23.7639063 13.0383439,24.7558423 14.6815498,24.7188531 C16.3732558,24.6928043 17.4381502,23.2231345 18.4545444,21.7211641 C19.6723197,20.0160136 20.1610114,18.334307 20.1805169,18.2483462 C20.1415059,18.2348008 16.8962138,17.0099891 16.8630018,13.3079422" id="Fill-3" />
+                                                                <path d="M13.7589927,4.22214186 C14.6066908,3.17446155 15.187111,1.74907452 15.0257953,0.302848498 C13.799058,0.356508901 12.2644503,1.14161791 11.3803771,2.16637533 C10.5985759,3.06922464 9.9005956,4.54931402 10.0808896,5.94083769 C11.4589262,6.04242778 12.8743923,5.25367194 13.7589927,4.22214186" id="Fill-4" />
+                                                                <path d="M39.6933889,24.5422426 L37.4908499,24.5422426 L36.2841453,20.7953919 L32.0899374,20.7953919 L30.9401678,24.5422426 L28.795618,24.5422426 L32.9518693,11.7856539 L35.5186865,11.7856539 L39.6933889,24.5422426 L39.6933889,24.5422426 L39.6933889,24.5422426 Z M35.9203942,19.22309 L34.8291411,15.8919772 C34.7136896,15.5517806 34.4964934,14.7505214 34.1780794,13.4887205 L34.1390684,13.4887205 C34.0114919,14.0315762 33.8064207,14.8328354 33.5264905,15.8919772 L32.4536885,19.22309 L35.9203942,19.22309 L35.9203942,19.22309 L35.9203942,19.22309 Z" id="Fill-5" />
+                                                                <path d="M50.3613113,19.8300256 C50.3613113,21.393992 49.9316633,22.6307861 49.071313,23.5388452 C48.3011097,24.3468771 47.343759,24.7501116 46.201897,24.7501116 C44.9693608,24.7501116 44.0826517,24.3161396 43.5444056,23.4455907 L43.5444056,28.2719012 L41.4762963,28.2719012 L41.4762963,18.3671284 C41.4762963,17.38457 41.4499375,16.3770047 41.3998559,15.3439117 L43.2186112,15.3439117 L43.3340626,16.8015992 L43.3725464,16.8015992 C44.0620919,15.7033843 45.1090623,15.1537559 46.5134577,15.1537559 C47.6115642,15.1537559 48.5283223,15.5825182 49.2616233,16.4405636 C49.99387,17.3001721 50.3613113,18.4296454 50.3613113,19.8300256 L50.3613113,19.8300256 L50.3613113,19.8300256 Z M48.2547182,19.904525 C48.2547182,19.0094903 48.0507013,18.2712691 47.6416132,17.6893402 C47.1945684,17.0844885 46.5941156,16.7818021 45.841309,16.7818021 C45.3310032,16.7818021 44.867616,16.950077 44.4532561,17.2829799 C44.0378418,17.6184876 43.7663464,18.0566274 43.6392972,18.5989622 C43.5755089,18.852156 43.5433512,19.058462 43.5433512,19.2210061 L43.5433512,20.7557978 C43.5433512,21.4242085 43.7510584,21.9884242 44.1659454,22.4505288 C44.5813597,22.9105496 45.1206602,23.1418624 45.7838469,23.1418624 C46.5630122,23.1418624 47.169264,22.8438648 47.6026022,22.2520374 C48.0375219,21.6586472 48.2547182,20.876664 48.2547182,19.904525 L48.2547182,19.904525 L48.2547182,19.904525 Z" id="Fill-6" />
+                                                                <path d="M61.0671903,19.8300256 C61.0671903,21.393992 60.6375423,22.6307861 59.777192,23.5388452 C59.0059343,24.3468771 58.0496381,24.7501116 56.9067217,24.7501116 C55.6741855,24.7501116 54.7874764,24.3161396 54.2492303,23.4455907 L54.2492303,28.2719012 L52.181121,28.2719012 L52.181121,18.3671284 C52.181121,17.38457 52.1547622,16.3770047 52.1046805,15.3439117 L53.9229086,15.3439117 L54.0383601,16.8015992 L54.0773711,16.8015992 C54.7658622,15.7033843 55.8128326,15.1537559 57.2182824,15.1537559 C58.3153345,15.1537559 59.2320926,15.5825182 59.9669752,16.4405636 C60.6986947,17.3001721 61.0671903,18.4296454 61.0671903,19.8300256 L61.0671903,19.8300256 L61.0671903,19.8300256 Z M58.9590157,19.904525 C58.9590157,19.0094903 58.7544716,18.2712691 58.3453835,17.6893402 C57.8983387,17.0844885 57.2994674,16.7818021 56.5466609,16.7818021 C56.0368822,16.7818021 55.5729678,16.950077 55.1570264,17.2829799 C54.7416121,17.6184876 54.4711711,18.0566274 54.3441218,18.5989622 C54.2808608,18.852156 54.2471215,19.058462 54.2471215,19.2210061 L54.2471215,20.7557978 C54.2471215,21.4242085 54.455883,21.9884242 54.8686614,22.4505288 C55.2840757,22.9100286 55.8233761,23.1418624 56.4886716,23.1418624 C57.2688912,23.1418624 57.8746158,22.8438648 58.3074269,22.2520374 C58.7418194,21.6586472 58.9590157,20.876664 58.9590157,19.904525 L58.9590157,19.904525 L58.9590157,19.904525 Z" id="Fill-7" />
+                                                                <path d="M73.0367089,20.9636668 C73.0367089,22.0498992 72.652398,22.9329515 71.8890479,23.6143865 C71.0492575,24.3583385 69.8762921,24.7308355 68.3727877,24.7308355 C66.9842076,24.7308355 65.8702858,24.4667013 65.0304954,23.9363489 L65.5086435,22.2327614 C66.4153853,22.7641557 67.4117469,23.0288109 68.4961468,23.0288109 C69.2758392,23.0288109 69.882091,22.8542843 70.3149021,22.5078361 C70.7482403,22.1608669 70.9675453,21.6971993 70.9675453,21.1183963 C70.9675453,20.5995054 70.7861969,20.1655334 70.4303535,19.8117915 C70.0724014,19.4590916 69.4809105,19.1303565 68.6495548,18.8281911 C66.3895537,17.9951524 65.2582352,16.7765924 65.2582352,15.1740739 C65.2582352,14.1274356 65.6578341,13.270432 66.4554506,12.6004585 C67.2525399,11.9310058 68.3100538,11.59654 69.6253566,11.59654 C70.7999035,11.59654 71.7788683,11.7991992 72.5553977,12.2024337 L72.0366571,13.8685111 C71.3054647,13.477259 70.479908,13.2818935 69.5562966,13.2818935 C68.8272129,13.2818935 68.2547004,13.4590249 67.8450851,13.8117248 C67.5008395,14.1274356 67.3263444,14.511394 67.3263444,14.9677679 C67.3263444,15.4710296 67.5250896,15.8893723 67.9209983,16.2170655 C68.2641896,16.5187099 68.8910012,16.8479659 69.7966886,17.2006659 C70.9085016,17.6434944 71.7250964,18.1592595 72.2480544,18.7516078 C72.7747027,19.3439562 73.0367089,20.0826984 73.0367089,20.9636668" id="Fill-8" />
+                                                                <path d="M79.8915713,16.8776615 L77.6120646,16.8776615 L77.6120646,21.3434574 C77.6120646,22.4791825 78.0137723,23.046003 78.8187692,23.046003 C79.1883192,23.046003 79.4946082,23.0152655 79.7371089,22.9511856 L79.794571,24.5031695 C79.3870644,24.6532103 78.8509269,24.7292726 78.1861587,24.7292726 C77.3695639,24.7292726 76.7311544,24.4828515 76.2704031,23.9900094 C75.8117605,23.4976882 75.5808576,22.6719431 75.5808576,21.5101693 L75.5808576,16.8734937 L74.2228537,16.8734937 L74.2228537,15.3397439 L75.5808576,15.3397439 L75.5808576,13.6559534 L77.6120646,13.0500597 L77.6120646,15.3397439 L79.8915713,15.3397439 L79.8915713,16.8776615" id="Fill-9" />
+                                                                <path d="M90.1562044,19.8670148 C90.1562044,21.2809404 89.7465891,22.4421932 88.9299943,23.3497313 C88.0754429,24.2843601 86.9383255,24.7501116 85.5212779,24.7501116 C84.1537848,24.7501116 83.0662218,24.3025942 82.255426,23.4080805 C81.4446301,22.5120039 81.0392322,21.3825305 81.0392322,20.0207024 C81.0392322,18.5953154 81.4578095,17.4278109 82.2933826,16.5197518 C83.1305372,15.6111718 84.2576383,15.1568818 85.6746859,15.1568818 C87.0405975,15.1568818 88.1371225,15.6054411 88.967951,16.5009967 C89.76135,17.3694617 90.1562044,18.4905994 90.1562044,19.8670148 L90.1562044,19.8670148 L90.1562044,19.8670148 Z M88.0121819,19.9144236 C88.0121819,19.0714863 87.8281976,18.3488943 87.4586477,17.7440426 C87.0247823,17.0136359 86.4042968,16.6484326 85.599827,16.6484326 C84.7716344,16.6484326 84.136388,17.0136359 83.7035769,17.7440426 C83.3329726,18.3488943 83.1489884,19.0839897 83.1489884,19.9524547 C83.1489884,20.7959129 83.3329726,21.5205888 83.7035769,22.1238776 C84.1506217,22.8542843 84.7742703,23.2194876 85.5824302,23.2194876 C86.3731934,23.2194876 86.9926246,22.8464697 87.4407237,22.1056435 C87.8213444,21.4862045 88.0121819,20.7589237 88.0121819,19.9144236 L88.0121819,19.9144236 L88.0121819,19.9144236 Z" id="Fill-10" />
+                                                                <path d="M96.8808545,17.1412747 C96.6763104,17.1037646 96.4570054,17.0844885 96.2287384,17.0844885 C95.5017635,17.0844885 94.9387401,17.3548744 94.5433585,17.8992931 C94.1996401,18.3785899 94.0272538,18.9844836 94.0272538,19.7159322 L94.0272538,24.5422426 L91.9591445,24.5422426 L91.9591445,18.2405315 C91.9591445,17.1813898 91.9385846,16.2149816 91.8990465,15.3444327 L93.700405,15.3444327 L93.7757911,17.1048065 L93.8332532,17.1048065 C94.0525582,16.4999548 94.3957494,16.0118014 94.8670442,15.6465981 C95.3277956,15.317863 95.8254492,15.1537559 96.3621138,15.1537559 C96.5529513,15.1537559 96.7258649,15.1673013 96.8787458,15.1912661 L96.8808545,17.1412747" id="Fill-11" />
+                                                                <path d="M106.129621,19.5075422 C106.129621,19.8737875 106.10537,20.1827256 106.054234,20.4348774 L99.8499066,20.4348774 C99.8731023,21.3434574 100.174119,22.0394797 100.750322,22.5187765 C101.272753,22.9464968 101.949119,23.1611385 102.779421,23.1611385 C103.69776,23.1611385 104.535969,23.0173494 105.28983,22.7266455 L105.613516,24.1442179 C104.733133,24.5240085 103.693016,24.7131224 102.493164,24.7131224 C101.049758,24.7131224 99.9168579,24.2932167 99.0923555,23.4549682 C98.2699618,22.6167198 97.8577106,21.4893304 97.8577106,20.0769677 C97.8577106,18.6911747 98.2409671,17.5361736 99.0080074,16.6150902 C99.8114228,15.6314898 100.89635,15.1396896 102.262261,15.1396896 C103.603923,15.1396896 104.619263,15.6314898 105.308808,16.6150902 C105.854962,17.3939475 106.129621,18.3603558 106.129621,19.5075422 L106.129621,19.5075422 L106.129621,19.5075422 Z M104.157457,18.9777109 C104.172218,18.3707752 104.036207,17.8482375 103.756277,17.4064509 C103.398325,16.8370255 102.847426,16.5536152 102.108853,16.5536152 C101.433014,16.5536152 100.882116,16.8302528 100.463012,17.3866539 C100.118766,17.8284405 99.9136948,18.3593138 99.8509609,18.975627 L104.157457,18.9777109 L104.157457,18.9777109 L104.157457,18.9777109 Z" id="Fill-12" />
+                                                                <path d="M29.7498056,0.491441372 L32.22384,0.491441372 C32.7246567,0.491441372 33.1637938,0.54770665 33.5412514,0.65971623 C33.9181819,0.772246785 34.2450307,0.92176655 34.5223249,1.10983845 C34.7996192,1.29843132 35.0299949,1.51463586 35.213452,1.75897304 C35.3974362,2.00278924 35.5424094,2.25337812 35.6494261,2.51073966 C35.7559155,2.76810121 35.8328831,3.02546276 35.8798017,3.28282431 C35.9261932,3.54018585 35.9499161,3.77775036 35.9499161,3.99551782 C35.9499161,4.44459809 35.8660952,4.87857009 35.6995077,5.29743383 C35.5323931,5.71629756 35.2851478,6.08931551 34.958299,6.4159667 C34.6309231,6.7426179 34.224998,7.00466822 33.7410509,7.20263864 C33.2571039,7.40060906 32.6977707,7.49959427 32.0635787,7.49959427 L29.7498056,7.49959427 L29.7498056,0.491441372 L29.7498056,0.491441372 L29.7498056,0.491441372 Z M30.7113736,6.60872738 L31.92335,6.60872738 C32.3303294,6.60872738 32.7162219,6.554546 33.0799729,6.44566227 C33.443724,6.33677853 33.7626651,6.17319245 34.0367964,5.95542499 C34.3104004,5.73765752 34.5275967,5.46570868 34.687858,5.13905749 C34.8481194,4.81240629 34.92825,4.43105275 34.92825,3.99551782 C34.92825,3.77149866 34.8913478,3.50892737 34.8180704,3.20884589 C34.7442658,2.90824343 34.6061458,2.62327022 34.4021289,2.35236333 C34.1986392,2.08197741 33.9166004,1.85222753 33.5560124,1.6646766 C33.1954243,1.47608373 32.7278197,1.38230827 32.1537257,1.38230827 L30.7113736,1.38230827 L30.7113736,6.60872738 L30.7113736,6.60872738 L30.7113736,6.60872738 Z" id="Fill-50" />
+                                                                <path d="M36.6705649,5.15364478 C36.6705649,4.81084337 36.7359347,4.49044387 36.866147,4.19348824 C36.9963593,3.89653261 37.1750718,3.63604521 37.4022844,3.41150508 C37.6289699,3.18748592 37.8962478,3.01087546 38.2035911,2.88219469 C38.5104072,2.75351392 38.8409462,2.68891304 39.1952081,2.68891304 C39.5489429,2.68891304 39.8794819,2.75351392 40.186298,2.88219469 C40.4936413,3.01087546 40.7609192,3.18748592 40.9876047,3.41150508 C41.2148173,3.63604521 41.3935298,3.89653261 41.5237421,4.19348824 C41.6539544,4.49044387 41.7193242,4.81084337 41.7193242,5.15364478 C41.7193242,5.49696717 41.6539544,5.81840862 41.5237421,6.11901107 C41.3935298,6.41909255 41.2148173,6.67957995 40.9876047,6.90099423 C40.7609192,7.12188755 40.4936413,7.2964141 40.186298,7.42509487 C39.8794819,7.55377565 39.5489429,7.61837652 39.1952081,7.61837652 C38.8409462,7.61837652 38.5104072,7.55377565 38.2035911,7.42509487 C37.8962478,7.2964141 37.6289699,7.12188755 37.4022844,6.90099423 C37.1750718,6.67957995 36.9963593,6.41909255 36.866147,6.11901107 C36.7359347,5.81840862 36.6705649,5.49696717 36.6705649,5.15364478 L36.6705649,5.15364478 L36.6705649,5.15364478 Z M37.6326601,5.15364478 C37.6326601,5.39120929 37.6690352,5.61053968 37.7428398,5.81215692 C37.8161172,6.01377416 37.9194435,6.18517487 38.0533461,6.32635904 C38.1867215,6.46858516 38.3501459,6.58059474 38.5441464,6.66342973 C38.7376198,6.74574375 38.9542889,6.78690075 39.1952081,6.78690075 C39.4356001,6.78690075 39.6522692,6.74574375 39.8457426,6.66342973 C40.0397432,6.58059474 40.2031676,6.46858516 40.3370702,6.32635904 C40.4699184,6.18517487 40.5737719,6.01377416 40.6470493,5.81215692 C40.7208539,5.61053968 40.757229,5.39120929 40.757229,5.15364478 C40.757229,4.91608028 40.7208539,4.69674989 40.6470493,4.49513265 C40.5737719,4.29455735 40.4699184,4.12263567 40.3370702,3.98040955 C40.2031676,3.83922538 40.0397432,3.72669483 39.8457426,3.64438081 C39.6522692,3.56154582 39.4356001,3.52038881 39.1952081,3.52038881 C38.9542889,3.52038881 38.7376198,3.56154582 38.5441464,3.64438081 C38.3501459,3.72669483 38.1867215,3.83922538 38.0533461,3.98040955 C37.9194435,4.12263567 37.8161172,4.29455735 37.7428398,4.49513265 C37.6690352,4.69674989 37.6326601,4.91608028 37.6326601,5.15364478 L37.6326601,5.15364478 L37.6326601,5.15364478 Z" id="Fill-51" />
+                                                                <polyline id="Fill-52" points="42.0799122 2.8076953 43.0915619 2.8076953 44.1580378 6.31177174 44.1780705 6.31177174 45.3151879 2.8076953 46.2767559 2.8076953 47.478716 6.31177174 47.4987486 6.31177174 48.5103983 2.8076953 49.4719663 2.8076953 47.9394673 7.49959427 47.027981 7.49959427 45.7706675 3.99551782 45.7501077 3.99551782 44.6040282 7.49959427 43.6424602 7.49959427 42.0799122 2.8076953" />
+                                                                <path d="M50.0523865,2.8076953 L50.9538565,2.8076953 L50.9538565,3.53028733 L50.9738892,3.53028733 C51.0877591,3.27917748 51.2843955,3.07703926 51.5648529,2.92178878 C51.8458374,2.76653829 52.1695231,2.68891304 52.5364372,2.68891304 C52.7636498,2.68891304 52.9824276,2.72329738 53.1922435,2.793108 C53.4031137,2.86239765 53.5865707,2.96971846 53.743669,3.11454945 C53.9002401,3.25938044 54.0251807,3.44641039 54.1190179,3.6735554 C54.2128551,3.90174236 54.2597738,4.17004438 54.2597738,4.48054535 L54.2597738,7.49959427 L53.3577766,7.49959427 L53.3577766,4.72800838 C53.3577766,4.51024092 53.3277276,4.32373194 53.2676296,4.16848145 C53.2080587,4.01375194 53.1274009,3.88819701 53.0272376,3.79285863 C52.9270742,3.69699927 52.81215,3.62770962 52.6819376,3.58446871 C52.5511981,3.54174878 52.4167684,3.52038881 52.2760125,3.52038881 C52.0893924,3.52038881 51.9159517,3.55008437 51.7556904,3.6094755 C51.5949019,3.6693876 51.4546732,3.76264209 51.3344772,3.89132286 C51.2142812,4.02000364 51.1209711,4.18358972 51.0540199,4.38156014 C50.9875957,4.57953056 50.9538565,4.81396922 50.9538565,5.08435514 L50.9538565,7.49959427 L50.0523865,7.49959427 L50.0523865,2.8076953" id="Fill-53" />
+                                                                <polygon id="Fill-54" points="55.4917828 0.0163123623 56.3932528 0.0163123623 56.3932528 7.49959427 55.4917828 7.49959427" />
+                                                                <path d="M57.3948862,5.15364478 C57.3948862,4.81084337 57.4597287,4.49044387 57.5899411,4.19348824 C57.7201534,3.89653261 57.8988659,3.63604521 58.1260785,3.41150508 C58.3527639,3.18748592 58.6200419,3.01087546 58.926858,2.88219469 C59.2342013,2.75351392 59.5647403,2.68891304 59.918475,2.68891304 C60.2727369,2.68891304 60.6032759,2.75351392 60.9106192,2.88219469 C61.2174353,3.01087546 61.4847133,3.18748592 61.7113987,3.41150508 C61.9386113,3.63604521 62.1173238,3.89653261 62.2475362,4.19348824 C62.3777485,4.49044387 62.4425911,4.81084337 62.4425911,5.15364478 C62.4425911,5.49696717 62.3777485,5.81840862 62.2475362,6.11901107 C62.1173238,6.41909255 61.9386113,6.67957995 61.7113987,6.90099423 C61.4847133,7.12188755 61.2174353,7.2964141 60.9106192,7.42509487 C60.6032759,7.55377565 60.2727369,7.61837652 59.918475,7.61837652 C59.5647403,7.61837652 59.2342013,7.55377565 58.926858,7.42509487 C58.6200419,7.2964141 58.3527639,7.12188755 58.1260785,6.90099423 C57.8988659,6.67957995 57.7201534,6.41909255 57.5899411,6.11901107 C57.4597287,5.81840862 57.3948862,5.49696717 57.3948862,5.15364478 L57.3948862,5.15364478 L57.3948862,5.15364478 Z M58.355927,5.15364478 C58.355927,5.39120929 58.3928293,5.61053968 58.4661067,5.81215692 C58.5399112,6.01377416 58.6432376,6.18517487 58.776613,6.32635904 C58.9105156,6.46858516 59.07394,6.58059474 59.2679405,6.66342973 C59.4614139,6.74574375 59.678083,6.78690075 59.918475,6.78690075 C60.158867,6.78690075 60.3760633,6.74574375 60.5700639,6.66342973 C60.7635373,6.58059474 60.9269617,6.46858516 61.0603371,6.32635904 C61.1942396,6.18517487 61.297566,6.01377416 61.3713706,5.81215692 C61.444648,5.61053968 61.4815502,5.39120929 61.4815502,5.15364478 C61.4815502,4.91608028 61.444648,4.69674989 61.3713706,4.49513265 C61.297566,4.29455735 61.1942396,4.12263567 61.0603371,3.98040955 C60.9269617,3.83922538 60.7635373,3.72669483 60.5700639,3.64438081 C60.3760633,3.56154582 60.158867,3.52038881 59.918475,3.52038881 C59.678083,3.52038881 59.4614139,3.56154582 59.2679405,3.64438081 C59.07394,3.72669483 58.9105156,3.83922538 58.776613,3.98040955 C58.6432376,4.12263567 58.5399112,4.29455735 58.4661067,4.49513265 C58.3928293,4.69674989 58.355927,4.91608028 58.355927,5.15364478 L58.355927,5.15364478 L58.355927,5.15364478 Z" id="Fill-55" />
+                                                                <path d="M63.3941428,3.38180952 C63.6477142,3.15049671 63.9413509,2.97753308 64.2755801,2.86239765 C64.6092822,2.74674125 64.9429842,2.68891304 65.2772135,2.68891304 C65.6240949,2.68891304 65.9235306,2.73215395 66.1734117,2.81759382 C66.4238201,2.90355466 66.6294185,3.01869009 66.7896798,3.16404205 C66.9499412,3.30939402 67.0685556,3.47558498 67.1449961,3.66417785 C67.2219637,3.85172878 67.2604475,4.04865725 67.2604475,4.25287937 L67.2604475,6.64832146 C67.2604475,6.81347047 67.2636106,6.96507413 67.2699367,7.10365343 C67.2767899,7.24223272 67.2873335,7.37456032 67.3005128,7.49959427 L66.4992062,7.49959427 C66.4786463,7.26202976 66.4691572,7.02446526 66.4691572,6.78690075 L66.4491245,6.78690075 C66.2487978,7.09062906 66.0115689,7.30527067 65.7379648,7.43030462 C65.4643608,7.55533857 65.1470011,7.61837652 64.7858859,7.61837652 C64.5660538,7.61837652 64.3557108,7.58868096 64.1553841,7.52928983 C63.9545303,7.46989871 63.779508,7.38133299 63.629263,7.26202976 C63.479018,7.14324751 63.3604035,6.99633262 63.2734196,6.82128509 C63.1869628,6.64675854 63.1437344,6.44409934 63.1437344,6.21278653 C63.1437344,5.90905823 63.2117401,5.65534351 63.3488057,5.45060041 C63.4858713,5.2463783 63.6724914,5.07914539 63.9097204,4.95046461 C64.1469493,4.82178384 64.4242436,4.73009228 64.7416032,4.67330602 C65.0584357,4.61756172 65.3974095,4.58942908 65.7579975,4.58942908 L66.4190755,4.58942908 L66.4190755,4.39145866 C66.4190755,4.27267641 66.3953526,4.15389416 66.348434,4.03511191 C66.3025697,3.91632965 66.2319282,3.80900885 66.1386182,3.71314948 C66.0447809,3.6178111 65.927748,3.54174878 65.7880465,3.48600447 C65.6478178,3.4297392 65.4807032,3.40160656 65.2872298,3.40160656 C65.1137891,3.40160656 64.9619625,3.41827775 64.831223,3.45057819 C64.7010107,3.48444155 64.5823962,3.52507758 64.4759068,3.57509116 C64.3688902,3.62458377 64.2718899,3.68241197 64.1854331,3.74805479 C64.0984492,3.81421859 64.0151554,3.87673557 63.9350248,3.93612669 L63.3941428,3.38180952 L63.3941428,3.38180952 L63.3941428,3.38180952 Z M65.9382915,5.24273147 C65.7242582,5.24273147 65.5060076,5.25471389 65.281958,5.27711581 C65.0584357,5.30055967 64.8544188,5.34484253 64.6714889,5.41100633 C64.4875046,5.47717013 64.3372596,5.56938267 64.2202267,5.68816492 C64.1037209,5.80694717 64.0452044,5.95907181 64.0452044,6.14349689 C64.0452044,6.41440378 64.136933,6.60872738 64.3209172,6.72750963 C64.5038471,6.84629188 64.7526739,6.90568301 65.0668705,6.90568301 C65.3141157,6.90568301 65.5239316,6.864526 65.6978995,6.78169101 C65.8713402,6.69937699 66.0115689,6.59257716 66.1185855,6.46024956 C66.2250749,6.32844294 66.3025697,6.18152805 66.348434,6.01950489 C66.3953526,5.85852368 66.4190755,5.69806344 66.4190755,5.5396871 L66.4190755,5.24273147 L65.9382915,5.24273147 L65.9382915,5.24273147 L65.9382915,5.24273147 Z" id="Fill-56" />
+                                                                <path d="M73.1305461,7.49959427 L72.2290761,7.49959427 L72.2290761,6.82649484 L72.2090434,6.82649484 C72.0345484,7.07708371 71.7962651,7.27244926 71.492612,7.41050758 C71.1884318,7.54908687 70.8763439,7.61837652 70.5558212,7.61837652 C70.1889071,7.61837652 69.8567866,7.55533857 69.5594596,7.43030462 C69.2621327,7.30527067 69.0080341,7.13022314 68.7982183,6.90568301 C68.5873481,6.68166385 68.4260324,6.42065548 68.3121625,6.12369984 C68.1988198,5.82674421 68.142412,5.50373984 68.142412,5.15364478 C68.142412,4.8040707 68.1988198,4.47898243 68.3121625,4.17890095 C68.4260324,3.87829849 68.5873481,3.6178111 68.7982183,3.39639681 C69.0080341,3.1755035 69.2621327,3.00253987 69.5594596,2.87698494 C69.8567866,2.75195099 70.1889071,2.68891304 70.5558212,2.68891304 C70.8963766,2.68891304 71.2174264,2.75976562 71.5173893,2.90199173 C71.8178793,3.04369688 72.0482549,3.23645755 72.2090434,3.48079473 L72.2290761,3.48079473 L72.2290761,0.0163123623 L73.1305461,0.0163123623 L73.1305461,7.49959427 L73.1305461,7.49959427 L73.1305461,7.49959427 Z M70.6660009,6.78690075 C70.9063929,6.78690075 71.1235892,6.74574375 71.3170626,6.66342973 C71.510536,6.58059474 71.6744875,6.46858516 71.8078629,6.32635904 C71.9417655,6.18517487 72.0450919,6.01377416 72.1188964,5.81215692 C72.1916467,5.61053968 72.2290761,5.39120929 72.2290761,5.15364478 C72.2290761,4.91608028 72.1916467,4.69674989 72.1188964,4.49513265 C72.0450919,4.29455735 71.9417655,4.12263567 71.8078629,3.98040955 C71.6744875,3.83922538 71.510536,3.72669483 71.3170626,3.64438081 C71.1235892,3.56154582 70.9063929,3.52038881 70.6660009,3.52038881 C70.4256089,3.52038881 70.2089398,3.56154582 70.0154664,3.64438081 C69.8209387,3.72669483 69.6580414,3.83922538 69.5241389,3.98040955 C69.3907635,4.12263567 69.2874371,4.29455735 69.2136325,4.49513265 C69.139828,4.69674989 69.1034529,4.91608028 69.1034529,5.15364478 C69.1034529,5.39120929 69.139828,5.61053968 69.2136325,5.81215692 C69.2874371,6.01377416 69.3907635,6.18517487 69.5241389,6.32635904 C69.6580414,6.46858516 69.8209387,6.58059474 70.0154664,6.66342973 C70.2089398,6.74574375 70.4256089,6.78690075 70.6660009,6.78690075 L70.6660009,6.78690075 L70.6660009,6.78690075 Z" id="Fill-57" />
+                                                                <path d="M76.6462792,5.15364478 C76.6462792,4.81084337 76.7111218,4.49044387 76.8413341,4.19348824 C76.9715465,3.89653261 77.1502589,3.63604521 77.3769444,3.41150508 C77.604157,3.18748592 77.8714349,3.01087546 78.1782511,2.88219469 C78.4855943,2.75351392 78.8161333,2.68891304 79.1698681,2.68891304 C79.52413,2.68891304 79.854669,2.75351392 80.1614851,2.88219469 C80.4688284,3.01087546 80.7355792,3.18748592 80.9627918,3.41150508 C81.1900044,3.63604521 81.3687169,3.89653261 81.4989292,4.19348824 C81.6291415,4.49044387 81.6939841,4.81084337 81.6939841,5.15364478 C81.6939841,5.49696717 81.6291415,5.81840862 81.4989292,6.11901107 C81.3687169,6.41909255 81.1900044,6.67957995 80.9627918,6.90099423 C80.7355792,7.12188755 80.4688284,7.2964141 80.1614851,7.42509487 C79.854669,7.55377565 79.52413,7.61837652 79.1698681,7.61837652 C78.8161333,7.61837652 78.4855943,7.55377565 78.1782511,7.42509487 C77.8714349,7.2964141 77.604157,7.12188755 77.3769444,6.90099423 C77.1502589,6.67957995 76.9715465,6.41909255 76.8413341,6.11901107 C76.7111218,5.81840862 76.6462792,5.49696717 76.6462792,5.15364478 L76.6462792,5.15364478 L76.6462792,5.15364478 Z M77.60732,5.15364478 C77.60732,5.39120929 77.6436952,5.61053968 77.7174997,5.81215692 C77.7913043,6.01377416 77.8946307,6.18517487 78.0280061,6.32635904 C78.1619086,6.46858516 78.3248058,6.58059474 78.5188064,6.66342973 C78.712807,6.74574375 78.9294761,6.78690075 79.1698681,6.78690075 C79.4102601,6.78690075 79.6274564,6.74574375 79.8209298,6.66342973 C80.0144031,6.58059474 80.1783547,6.46858516 80.3117301,6.32635904 C80.4456327,6.18517487 80.548959,6.01377416 80.6227636,5.81215692 C80.6955138,5.61053968 80.7329433,5.39120929 80.7329433,5.15364478 C80.7329433,4.91608028 80.6955138,4.69674989 80.6227636,4.49513265 C80.548959,4.29455735 80.4456327,4.12263567 80.3117301,3.98040955 C80.1783547,3.83922538 80.0144031,3.72669483 79.8209298,3.64438081 C79.6274564,3.56154582 79.4102601,3.52038881 79.1698681,3.52038881 C78.9294761,3.52038881 78.712807,3.56154582 78.5188064,3.64438081 C78.3248058,3.72669483 78.1619086,3.83922538 78.0280061,3.98040955 C77.8946307,4.12263567 77.7913043,4.29455735 77.7174997,4.49513265 C77.6436952,4.69674989 77.60732,4.91608028 77.60732,5.15364478 L77.60732,5.15364478 L77.60732,5.15364478 Z" id="Fill-58" />
+                                                                <path d="M82.624976,2.8076953 L83.526446,2.8076953 L83.526446,3.53028733 L83.5464787,3.53028733 C83.6598214,3.27917748 83.856985,3.07703926 84.1379695,2.92178878 C84.4184268,2.76653829 84.7421126,2.68891304 85.1090267,2.68891304 C85.3362393,2.68891304 85.5550171,2.72329738 85.7648329,2.793108 C85.9757031,2.86239765 86.1591602,2.96971846 86.3162585,3.11454945 C86.4728296,3.25938044 86.5977702,3.44641039 86.6916074,3.6735554 C86.7854446,3.90174236 86.8323632,4.17004438 86.8323632,4.48054535 L86.8323632,7.49959427 L85.930366,7.49959427 L85.930366,4.72800838 C85.930366,4.51024092 85.900317,4.32373194 85.840219,4.16848145 C85.7806482,4.01375194 85.6999904,3.88819701 85.599827,3.79285863 C85.5001909,3.69699927 85.3847394,3.62770962 85.2545271,3.58446871 C85.1243148,3.54174878 84.9893579,3.52038881 84.848602,3.52038881 C84.6619819,3.52038881 84.4885412,3.55008437 84.3282798,3.6094755 C84.1674913,3.6693876 84.0277898,3.76264209 83.9070667,3.89132286 C83.7868707,4.02000364 83.6935606,4.18358972 83.6271365,4.38156014 C83.5601852,4.57953056 83.526446,4.81396922 83.526446,5.08435514 L83.526446,7.49959427 L82.624976,7.49959427 L82.624976,2.8076953" id="Fill-59" />
+                                                                <path d="M93.1226207,3.57977994 L91.8299865,3.57977994 L91.8299865,5.70796196 C91.8299865,5.83976858 91.8331495,5.97001228 91.8400028,6.09921403 C91.8468561,6.2278948 91.8716333,6.34303023 91.9148617,6.44566227 C91.9591445,6.54777333 92.0250414,6.63008734 92.1157156,6.69260432 C92.2058626,6.75564227 92.3376564,6.78690075 92.5110972,6.78690075 C92.6181138,6.78690075 92.7282934,6.77700223 92.8416362,6.75720519 C92.9549789,6.73740815 93.0583053,6.70146089 93.1521425,6.64832146 L93.1521425,7.46000019 C93.0456531,7.51939131 92.9070059,7.56054832 92.7367283,7.58347121 C92.5664506,7.60691508 92.4346567,7.61837652 92.3408195,7.61837652 C91.993938,7.61837652 91.7250786,7.57044684 91.5347682,7.47458748 C91.3444579,7.37924909 91.2042292,7.25525709 91.1140822,7.10365343 C91.0239352,6.95204976 90.9706905,6.78169101 90.9538209,6.59414008 C90.9369513,6.40554721 90.9285165,6.21591238 90.9285165,6.02471463 L90.9285165,3.57977994 L89.887345,3.57977994 L89.887345,2.8076953 L90.9285165,2.8076953 L90.9285165,1.491192 L91.8299865,1.491192 L91.8299865,2.8076953 L93.1226207,2.8076953 L93.1226207,3.57977994" id="Fill-60" />
+                                                                <path d="M94.0841887,0.0163123623 L94.9856587,0.0163123623 L94.9856587,3.53028733 L95.0056914,3.53028733 C95.1190341,3.27917748 95.3161977,3.07703926 95.5966551,2.92178878 C95.8771124,2.76653829 96.2007981,2.68891304 96.5682394,2.68891304 C96.7949249,2.68891304 97.0137027,2.72329738 97.2240457,2.793108 C97.4343887,2.86239765 97.6183729,2.96971846 97.7754712,3.11454945 C97.9320423,3.25938044 98.0569829,3.44641039 98.1508201,3.6735554 C98.2441302,3.90174236 98.2910488,4.17004438 98.2910488,4.48054535 L98.2910488,7.49959427 L97.3890516,7.49959427 L97.3890516,4.72800838 C97.3890516,4.51024092 97.3595298,4.32373194 97.2989046,4.16848145 C97.2393338,4.01375194 97.1592031,3.88819701 97.0585126,3.79285863 C96.9588764,3.69699927 96.843425,3.62770962 96.7132127,3.58446871 C96.5830003,3.54174878 96.4480434,3.52038881 96.3072876,3.52038881 C96.1206675,3.52038881 95.9472267,3.55008437 95.7869654,3.6094755 C95.6267041,3.6693876 95.4864754,3.76264209 95.3657522,3.89132286 C95.2460834,4.02000364 95.1522462,4.18358972 95.0858221,4.38156014 C95.0188708,4.57953056 94.9856587,4.81396922 94.9856587,5.08435514 L94.9856587,7.49959427 L94.0841887,7.49959427 L94.0841887,0.0163123623" id="Fill-61" />
+                                                                <path d="M100.133527,5.48029598 C100.133527,5.68503907 100.178864,5.87102707 100.269011,6.03930193 C100.359158,6.20809776 100.477773,6.35136583 100.624327,6.47014808 C100.771409,6.58893033 100.941687,6.68166385 101.135688,6.74730667 C101.329161,6.81347047 101.529488,6.84629188 101.73614,6.84629188 C102.017125,6.84629188 102.26068,6.78169101 102.467333,6.65353121 C102.674513,6.52485043 102.864823,6.35501265 103.038264,6.14349689 L103.719374,6.65821998 C103.218558,7.29797703 102.517942,7.61837652 101.616472,7.61837652 C101.242177,7.61837652 100.903203,7.55533857 100.59955,7.43030462 C100.29537,7.30527067 100.038635,7.13178607 99.8282924,6.91037178 C99.6179494,6.68947847 99.4555794,6.42899107 99.3422366,6.12838862 C99.2283667,5.82830714 99.171959,5.50373984 99.171959,5.15364478 C99.171959,4.8040707 99.2336385,4.47898243 99.3575247,4.17890095 C99.4808838,3.87829849 99.6511614,3.6178111 99.8678306,3.39639681 C100.085027,3.1755035 100.344397,3.00253987 100.64436,2.87698494 C100.94485,2.75195099 101.272226,2.68891304 101.625961,2.68891304 C102.046647,2.68891304 102.40249,2.76132854 102.692964,2.90668051 C102.983437,3.05203247 103.222248,3.2416673 103.408868,3.47558498 C103.596015,3.71054461 103.730972,3.97415785 103.814793,4.26798764 C103.898087,4.56129644 103.939734,4.86033598 103.939734,5.1635433 L103.939734,5.48029598 L100.133527,5.48029598 L100.133527,5.48029598 L100.133527,5.48029598 Z M102.978693,4.76760246 C102.971312,4.56963204 102.940209,4.38781184 102.883274,4.2231838 C102.826339,4.05855577 102.741464,3.91476673 102.628121,3.79285863 C102.514251,3.67042955 102.371914,3.57509116 102.202163,3.50580152 C102.031886,3.43599089 101.833141,3.40160656 101.605928,3.40160656 C101.385569,3.40160656 101.18366,3.44276357 101.000203,3.52507758 C100.816219,3.60791258 100.660702,3.71471241 100.53418,3.84704001 C100.407658,3.97884663 100.308549,4.12576152 100.238435,4.28778468 C100.168848,4.44980784 100.133527,4.60922613 100.133527,4.76760246 L102.978693,4.76760246 L102.978693,4.76760246 L102.978693,4.76760246 Z" id="Fill-62" /> </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="intro_block_right s70">
+                    <div class="video_top">
+                        <video src="video/1.mp4" autoplay muted loop playsinline id="mytest1" poster="img/pre.png"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="figure_anim">
+        <div class="wrapper">
+            <div class="figure_block"> </div>
+        </div>
+    </div>
+    <div class="img_3">
+        <div class="wrapper">
+            <div class="block_3_container">
+                <div class="block_3"> <img data-lazy="img/icon-3@2x.png" alt="icon">
+                    <h4>Animation</h4>
+                    <p>Make any detail in the picture move. Set directions, areas and objects to move or remain static. Make every pixel count.</p>
+                </div>
+                <div class="block_3"> <img data-lazy="img/icon-1@2x.png" alt="icon">
+                    <h4>Special Effects</h4>
+                    <p>Your personality matters. Viespire’s special effects will make your photos unique.</p>
+                </div>
+                <div class="block_3"> <img data-lazy="img/icon-2@2x.png" alt="icon">
+                    <h4>Motion</h4>
+                    <p>Erase any part of the picture and substitute it with another photo or video. There’s no limit for awesomeness.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="howitworks" id="yak2">
+        <div class="howitworks_img s30"></div>
+        <div class="howitworks_arrow arrow_an"> <img class="lazy" data-lazy="img/arrow-animate@2x.png" alt=""> </div>
+        <div class="wrapper">
+            <div class="howitworks_title">
+                <h2>How It Works</h2>
+                <p>Only a few taps between a static image and a masterpiece. It has never been simpler:</p>
+            </div>
+            <div class="howitworks_container">
+                <div class="howitworks_left s30">
+                    <div class="video_block video_block_active">
+
+                        <!-- for normal working src = > lazy-load -->
+
+                        <video data-lazy="video/animate.mp4" muted playsinline loop class="tab_img tab_1_1" poster="img/function_bg.png"></video>
+                        <video data-lazy="video/border.mp4" muted playsinline loop class="tab_img tab_1_2 tab_img_active" poster="img/function_bg.png"></video>
+                        <video data-lazy="video/remove.mp4" muted playsinline loop class="tab_img tab_1_3" poster="img/function_bg.png"></video>
+                        <!-- <video data-lazy="video/play2.mp4" muted playsinline loop class="tab_img tab_1_4" poster="img/play.png"></video> -->
+
+                        <video data-lazy="video/overlays.mp4" muted playsinline loop class="tab_img tab_2_1" poster="img/function_bg.png"></video>
+                        
+                        <video data-lazy="video/object.mp4" muted playsinline loop class="tab_img tab_3_1" poster="img/function_bg.png"></video>
+
+                    </div>
+                   
+                </div>
+                <div class="howitworks_right">
+                
+                    <div class="control_tabs">
+                        
+
+                        <div class="addition_function_image">
+
+                            <div class="tab_1_1"></div>
+
+                            <div class="tab_1_2 addition_function_image_active">
+                               <img src="img/Slide.png" alt="">
+                            </div>
+
+                            <div class="tab_1_3"></div>
+
+                           <!--  <div class="tab_1_4">
+                               <img src="img/Speedslider.png" alt="">
+                           </div> -->
+
+                            <div class="tab_2_1">
+                                 <img src="img/Opacityslider.png" alt="">
+                            </div>
+
+                            <div class="tab_3_1">
+                                 <img src="img/Opacityslider.png" alt="">
+                            </div>
+
+
+                        
+                        </div>
+                       
+                        <div class="control_tabs_wrapper">
+
+
+                            <div class="parent_control_tab_back parent_control_tab_back_active">
+                                <button>
+                                    <span>
+                                        <img src="img/back-tab.png" alt="">
+                                    </span>
+                                </button>
+                            </div>
+                            <div class="parent_control_tab">
+                                <ul class="single-item parent_control_tab_ul_unactive">
+                                    <li class="tab_1">
+                                        <button>
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 29 38"><g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g  transform="translate(-151.000000, -49.000000)"><g  transform="translate(70.000000, 27.000000)"><g  transform="translate(43.000000, 22.000000)"><g  transform="translate(22.486486, 0.000000)"><g  transform="translate(16.189189, 0.000000)"><g ><path d="M6.25815466,7.8 C5.81832619,7.8 5.62406861,8.46746082 6.01808162,8.72249063 L26.1768865,22.1713281 C26.6808566,22.5060547 26.8732816,22.8935805 26.8751142,23.2412579 C26.8751142,23.5899314 26.6872708,23.9784534 26.1805518,24.3091952 L7.39621082,36.612391 C7.01136091,36.8534738 6.71630931,36.5307017 6.71630931,36.0425587 L6.71630931,11.2867356 C6.71630931,10.6352142 5.8,10.6292369 5.8,11.2867356 L5.8,36.0425587 C5.8,36.7797543 6.14086706,37.3475941 6.58802601,37.5597868 C7.03701757,37.7729758 7.50616794,37.7042373 7.86902643,37.4661431 L26.6533674,25.1609549 C27.3625908,24.6957247 27.7932562,23.9874193 27.7914235,23.2402616 C27.7895909,22.493104 27.3589255,21.7897796 26.6570326,21.3215608 L6.4982277,7.87272334 C6.42034141,7.8199242 6.35161821,7.8 6.25815466,7.8 Z"  fill-rule="nonzero"/><path d="M0.458154657,-5.5067062e-14 C0.0183261863,-5.5067062e-14 -0.175931388,0.667460824 0.218081617,0.922490631 L20.3768865,14.3713281 C20.8808566,14.7060547 21.0732816,15.0935805 21.0751142,15.4412579 C21.0751142,15.7899314 20.8872708,16.1784534 20.3805518,16.5091952 L1.59621082,28.812391 C1.21136091,29.0534738 0.916309314,28.7307017 0.916309314,28.2425587 L0.916309314,3.48673565 C0.916309314,2.83521419 -2.66453526e-15,2.82923692 -2.66453526e-15,3.48673565 L-2.66453526e-15,28.2425587 C-2.66453526e-15,28.9797543 0.340867065,29.5475941 0.78802601,29.7597868 C1.23701757,29.9729758 1.70616794,29.9042373 2.06902643,29.6661431 L20.8533674,17.3609549 C21.5625908,16.8957247 21.9932562,16.1874193 21.9914235,15.4402616 C21.9895909,14.693104 21.5589255,13.9897796 20.8570326,13.5215608 L0.698227697,0.0727233435 C0.620341406,0.0199242037 0.551618207,-5.5067062e-14 0.458154657,-5.5067062e-14 Z"  fill-rule="nonzero"/></g></g></g></g></g></g></g></svg>
+                                                <span>Animation</span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li class="tab_2">
+                                        <button>
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 35 35" version="1.1"><g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g  transform="translate(-257.000000, -51.000000)" fill-rule="nonzero"><g  transform="translate(70.000000, 27.000000)"><g  transform="translate(150.000000, 24.000000)"><g  transform="translate(30.081081, 0.000000)"><g  transform="translate(7.162162, 0.000000)"><path d="M18.1333333,10.5 C17.7956,10.5 17.4828,10.605 17.2153333,10.7683333 C16.9501333,10.9316667 16.762,11.1276667 16.6010667,11.291 L13.2010667,14.7128333 C12.5233333,15.2845 12.3907333,15.3031667 11.7322667,14.7128333 L10.6012,13.6091667 C10.4391333,13.4458333 10.2498667,13.2475 9.9858,13.0876667 C9.7206,12.9231667 9.40666667,12.8333333 9.06666667,12.8333333 C8.72893333,12.8333333 8.4184,12.9231667 8.15206667,13.0865 C7.88913333,13.2475 7.69873333,13.4435 7.53666667,13.608 L3.57906667,17.668 C3.04866667,18.186 3.85786667,19.0295 4.3758,18.4963333 L8.33566667,14.4363333 C8.96353333,13.8588333 9.14486667,13.8611667 9.80446667,14.4363333 L10.9355333,15.5423333 C11.0976,15.708 11.2868667,15.904 11.5509333,16.065 C11.8184,16.2283333 12.1312,16.3333333 12.4689333,16.3333333 C12.8066667,16.3333333 13.1194667,16.2283333 13.3869333,16.065 C13.6476,15.9016667 13.8402667,15.708 14.0012,15.5423333 L17.4012,12.1205 C17.9973333,11.5371667 18.3056,11.5395 18.8677333,12.1205 L21.6931333,14.9788333 C22.2292,15.547 23.0463333,14.6953333 22.4887333,14.1505 L19.6633333,11.2898333 C19.5046667,11.1265 19.3142667,10.9305 19.0513333,10.7671667 C18.7838667,10.6038333 18.4710667,10.4988333 18.1333333,10.4988333 L18.1333333,10.5 Z M28.9,7 C28.1338667,6.98833333 28.1338667,8.17833333 28.9,8.16666667 L32.3,8.16666667 C32.6241333,8.16666667 32.8666667,8.41633333 32.8666667,8.75 L32.8666667,33.25 C32.8666667,33.5836667 32.6241333,33.8333333 32.3,33.8333333 L8.5,33.8333333 C8.17586667,33.8333333 7.93333333,33.5836667 7.93333333,33.25 L7.93333333,29.75 C7.94466667,28.9613333 6.78866667,28.9613333 6.8,29.75 L6.8,33.25 C6.8,34.209 7.5684,35 8.5,35 L32.3,35 C33.2316,35 34,34.209 34,33.25 L34,8.75 C34,7.791 33.2316,7 32.3,7 L28.9,7 Z M7.36666667,4.66666667 C5.80833333,4.66666667 4.53333333,5.97916667 4.53333333,7.58333333 C4.53333333,9.1875 5.80833333,10.5 7.36666667,10.5 C8.925,10.5 10.2,9.1875 10.2,7.58333333 C10.2,5.97916667 8.925,4.66666667 7.36666667,4.66666667 Z M7.36666667,5.83333333 C8.31186667,5.83333333 9.06666667,6.61033333 9.06666667,7.58333333 C9.06666667,8.55633333 8.31186667,9.33333333 7.36666667,9.33333333 C6.42146667,9.33333333 5.66666667,8.55633333 5.66666667,7.58333333 C5.66666667,6.61033333 6.42146667,5.83333333 7.36666667,5.83333333 Z M3.96666667,22.1666667 L23.2333333,22.1666667 C23.5472667,22.1666667 23.8,22.4268333 23.8,22.75 C23.8,23.0731667 23.5472667,23.3333333 23.2333333,23.3333333 L3.96666667,23.3333333 C3.65273333,23.3333333 3.4,23.0731667 3.4,22.75 C3.4,22.4268333 3.65273333,22.1666667 3.96666667,22.1666667 Z M1.7,0 C0.7684,0 0,0.791 0,1.75 L0,26.25 C0,27.209 0.7684,28 1.7,28 L25.5,28 C26.4316,28 27.2,27.209 27.2,26.25 L27.2,1.75 C27.2,0.791 26.4316,0 25.5,0 L1.7,0 Z M1.7,1.16666667 L25.5,1.16666667 C25.8241333,1.16666667 26.0666667,1.41633333 26.0666667,1.75 L26.0666667,26.25 C26.0666667,26.5836667 25.8241333,26.8333333 25.5,26.8333333 L1.7,26.8333333 C1.37586667,26.8333333 1.13333333,26.5836667 1.13333333,26.25 L1.13333333,1.75 C1.13333333,1.41633333 1.37586667,1.16666667 1.7,1.16666667 Z" /></g></g></g></g></g></g></svg>
+                                                <span>Overlay</span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li class="tab_3">
+                                        <button>
+                                            <span>
+                                                <svg viewBox="0 0 38 38" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g  transform="translate(-363.000000, -47.000000)" fill-rule="nonzero"><g  transform="translate(70.000000, 27.000000)"><g  transform="translate(256.000000, 20.000000)"><g  transform="translate(29.648649, 0.000000)"><path d="M36.842955,0.541227273 C36.1229189,-0.1785 34.9311351,-0.1785 34.2110991,0.541227273 L26.7574847,7.99164545 C26.0374486,8.71137273 26.0374486,9.90264545 26.7574847,10.6223727 L34.2110991,18.0740318 C34.9311351,18.7937591 36.1229189,18.7937591 36.842955,18.0740318 L44.2978108,10.6236136 C45.0178468,9.90388636 45.0178468,8.71261364 44.2978108,7.99288636 L36.842955,0.541227273 Z M35.9664973,1.41979091 L43.4188703,8.86896818 C43.6696414,9.11963182 43.6696414,9.49562727 43.4188703,9.74629091 L35.9664973,17.1967091 C35.7157261,17.4473727 35.3395694,17.4473727 35.0887982,17.1967091 L27.6351838,9.74629091 C27.3844126,9.49562727 27.3844126,9.11963182 27.6351838,8.86896818 L35.0887982,1.41979091 C35.3395694,1.16912727 35.7157261,1.16912727 35.9664973,1.41979091 Z M28.0783784,22.3365545 C27.0579135,22.3365545 26.2162162,23.1778909 26.2162162,24.1979182 L26.2162162,35.3661 C26.2162162,36.3861273 27.0579135,37.2274636 28.0783784,37.2274636 L39.2513514,37.2274636 C40.2718162,37.2274636 41.1135135,36.3861273 41.1135135,35.3661 L41.1135135,24.1979182 C41.1135135,23.1778909 40.2718162,22.3365545 39.2513514,22.3365545 L28.0783784,22.3365545 Z M28.0783784,23.5774636 L39.2513514,23.5774636 C39.6064036,23.5774636 39.8720721,23.8430182 39.8720721,24.1979182 L39.8720721,35.3661 C39.8720721,35.721 39.6064036,35.9865545 39.2513514,35.9865545 L28.0783784,35.9865545 C27.7233261,35.9865545 27.4576577,35.721 27.4576577,35.3661 L27.4576577,24.1979182 C27.4576577,23.8430182 27.7233261,23.5774636 28.0783784,23.5774636 Z M9.45675676,3.72291818 C8.43629189,3.72291818 7.59459459,4.56425455 7.59459459,5.58428182 L7.59459459,16.7524636 C7.59459459,17.7724909 8.43629189,18.6138273 9.45675676,18.6138273 L20.6297297,18.6138273 C21.6501946,18.6138273 22.4918919,17.7724909 22.4918919,16.7524636 L22.4918919,5.58428182 C22.4918919,4.56425455 21.6501946,3.72291818 20.6297297,3.72291818 L9.45675676,3.72291818 Z M9.45675676,4.96382727 L20.6297297,4.96382727 C20.984782,4.96382727 21.2504505,5.22938182 21.2504505,5.58428182 L21.2504505,16.7524636 C21.2504505,17.1073636 20.984782,17.3729182 20.6297297,17.3729182 L9.45675676,17.3729182 C9.1017045,17.3729182 8.83603604,17.1073636 8.83603604,16.7524636 L8.83603604,5.58428182 C8.83603604,5.22938182 9.1017045,4.96382727 9.45675676,4.96382727 Z M9.45675676,22.3365545 C8.43629189,22.3365545 7.59459459,23.1778909 7.59459459,24.1979182 L7.59459459,35.3661 C7.59459459,36.3861273 8.43629189,37.2274636 9.45675676,37.2274636 L20.6297297,37.2274636 C21.6501946,37.2274636 22.4918919,36.3861273 22.4918919,35.3661 L22.4918919,24.1979182 C22.4918919,23.1778909 21.6501946,22.3365545 20.6297297,22.3365545 L9.45675676,22.3365545 Z M9.45675676,23.5774636 L20.6297297,23.5774636 C20.984782,23.5774636 21.2504505,23.8430182 21.2504505,24.1979182 L21.2504505,35.3661 C21.2504505,35.721 20.984782,35.9865545 20.6297297,35.9865545 L9.45675676,35.9865545 C9.1017045,35.9865545 8.83603604,35.721 8.83603604,35.3661 L8.83603604,24.1979182 C8.83603604,23.8430182 9.1017045,23.5774636 9.45675676,23.5774636 Z" ></path></g></g></g></g></g></svg>
+                                                <span>Objects</span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="child_control_tab">
+                                <ul class="tab_1 single-item child_control_tab_ul_active">
+                                    <li class="tab_1_1">
+                                        <button>
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27px" height="28px" viewBox="0 0 27 28" version="1.1"><g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g  transform="translate(-128.000000, -206.000000)"><g  transform="translate(44.000000, 177.000000)"><g  transform="translate(50.000000, 14.000000)"><g  transform="translate(47.687918, 28.440425) rotate(-45.000000) translate(-47.687918, -28.440425) translate(27.687918, 8.940425)"><g transform="translate(19.686084, 19.528620) rotate(-315.000000) translate(-19.686084, -19.528620) translate(5.686084, 6.028620)" ><g transform="translate(0.667182, -0.000000)"><g  transform="translate(8.064615, 18.573701) scale(-1, -1) translate(-8.064615, -18.573701) translate(0.064615, 10.573701)"><polyline  stroke-linecap="round" stroke-linejoin="round" transform="translate(13.471978, 2.258384) rotate(-180.000000) translate(-13.471978, -2.258384) " points="11.5691348 0.363638076 11.5691348 4.1531296 15.3748208 4.1531296"/><path d="M14.7747112,0.987609989 L6.07718984,9.54848541"   stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2,2,2"/><ellipse   cx="2.36643357" cy="12.96" rx="2.36643357" ry="2.35636364"/></g><g  transform="translate(16.769344, 0.832234)" stroke-linecap="round" stroke-linejoin="round"><polyline  transform="translate(7.555894, 2.258384) rotate(-180.000000) translate(-7.555894, -2.258384) " points="5.6530509 0.363638076 5.6530509 4.1531296 9.45873684 4.1531296"/><path d="M8.85862733,0.987609988 L0.16110592,9.54848541"   stroke-dasharray="2,2,2"/></g><g  transform="translate(5.554739, 5.428186) scale(-1, -1) rotate(-270.000000) translate(-5.554739, -5.428186) translate(0.554739, 0.428186)" stroke-linecap="round" stroke-linejoin="round"><polyline  transform="translate(7.555894, 2.258384) rotate(-180.000000) translate(-7.555894, -2.258384) " points="5.6530509 0.363638076 5.6530509 4.1531296 9.45873684 4.1531296"/><path d="M8.85862733,0.987609988 L0.16110592,9.54848541"   stroke-dasharray="2,2,2"/></g><g  transform="translate(21.363136, 21.977748) rotate(-270.000000) translate(-21.363136, -21.977748) translate(16.363136, 16.977748)" stroke-linecap="round" stroke-linejoin="round"><polyline   transform="translate(7.555894, 2.258384) rotate(-180.000000) translate(-7.555894, -2.258384) " points="5.6530509 0.363638076 5.6530509 4.1531296 9.45873684 4.1531296"/><path d="M8.85862733,0.987609988 L0.16110592,9.54848541"   stroke-dasharray="2,2,2"/></g></g></g></g></g></g></g></g></svg>
+                                                <span>Animate</span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li class="tab_1_2" id="child_control_tab_ul_active_li_active">
+                                        <button>
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 37 38" version="1.1"><g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g  transform="translate(-224.000000, -199.000000)"><g  transform="translate(44.000000, 177.000000)"><g  transform="translate(151.000000, 15.000000)"><g  transform="translate(47.431575, 28.578206) rotate(-45.000000) translate(-47.431575, -28.578206) translate(27.431575, 9.078206)"><path d="M22.1384615,34.7234043 C31.7227261,34.7234043 39.4923077,26.9503054 39.4923077,17.3617021 C39.4923077,7.77309881 31.7227261,-1.13686838e-13 22.1384615,-1.13686838e-13 C12.554197,-1.13686838e-13 4.78461538,7.77309881 4.78461538,17.3617021"  stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="2"/><g  transform="translate(22.138462, 12.246462) rotate(-45.000000) translate(-22.138462, -12.246462) translate(18.523077, 8.629440)" stroke-linecap="round" stroke-linejoin="round"><polyline  transform="translate(4.616168, 2.347609) rotate(-180.000000) translate(-4.616168, -2.347609) " points="2.71332497 0.443904816 2.71332497 4.25131356 6.51901091 4.25131356"/><path d="M4.51390942,2.53008807 L0.934861251,6.11075645" /></g><g  transform="translate(22.007060, 22.476943) scale(1, -1) rotate(-45.000000) translate(-22.007060, -22.476943) translate(18.391675, 18.859921)" stroke-linecap="round" stroke-linejoin="round"><polyline  transform="translate(4.616168, 2.347609) rotate(-180.000000) translate(-4.616168, -2.347609) " points="2.71332497 0.443904816 2.71332497 4.25131356 6.51901091 4.25131356"/><path d="M4.51390942,2.53008807 L0.934861251,6.11075645" /></g><path d="M4.17312157,19.4252462 L4.17312157,19.4252462 C5.65606503,19.4249106 6.85850027,20.6268017 6.85883586,22.1097452 C6.85883595,22.1101503 6.85883595,22.1105554 6.85883586,22.1109604 L6.85883586,22.1109604 C6.85850008,23.5947719 5.65571717,24.7975548 4.17190576,24.7978905 L4.17190576,24.7978905 C2.68896231,24.7982261 1.48652706,23.596335 1.48619148,22.1133915 C1.48619139,22.1129864 1.48619139,22.1125813 1.48619148,22.1121763 L1.48619148,22.1121763 C1.48652726,20.6283648 2.68931016,19.4255819 4.17312157,19.4252462 Z"   transform="translate(4.172514, 22.111568) rotate(-45.000000) translate(-4.172514, -22.111568) "/><path d="M16.894742,32.0370821 L16.894742,32.0370821 C18.3776855,32.0367465 19.5801207,33.2386376 19.5804563,34.7215811 C19.5804564,34.7219862 19.5804564,34.7223913 19.5804563,34.7227964 L19.5804563,34.7227964 C19.5801205,36.2066078 18.3773376,37.4093907 16.8935262,37.4097264 L16.8935262,37.4097264 C15.4105828,37.410062 14.2081475,36.2081709 14.2078119,34.7252274 C14.2078118,34.7248223 14.2078118,34.7244172 14.2078119,34.7240122 L14.2078119,34.7240122 C14.2081477,33.2402008 15.4109306,32.0374178 16.894742,32.0370821 Z"  transform="translate(16.894134, 34.723404) rotate(-45.000000) translate(-16.894134, -34.723404) "/></g></g></g></g></g></svg>
+                                                <span>Border</span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <li class="tab_1_3">
+                                        <button>
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 45 34" version="1.1"><g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"><g  transform="translate(-319.000000, -203.000000)" ><g  transform="translate(44.000000, 177.000000)"><g  transform="translate(251.000000, 25.000000)"><g  transform="translate(23.000000, 0.000000)"><g ><path d="M33.3486901,34.39822 L6.25349087,34.39822"  stroke-dasharray="2"/><path d="M7.62052479,31.5345168 L0.846724977,31.5345168"  stroke-dasharray="2,2"/><g  transform="translate(26.946853, 19.893402) rotate(-315.000000) translate(-26.946853, -19.893402) translate(16.165603, 3.528017)"><path d="M-1.09157128e-12,24.5207101 L0.136780004,1.98146824 C0.143483362,0.876919084 1.04433152,-0.0130607824 2.14888068,-0.0063574248 C2.1488832,-0.00635740949 2.14888572,-0.00635739418 2.14888824,-0.00635737886 L18.5634594,0.0933300898 C19.6632686,0.100008843 20.5513144,0.993463711 20.5513144,2.09329321 L20.5513144,24.5207101" /><path d="M-6.12292439e-11,32.2263545 L0.0327446674,29.621543 L5.12591429,24.5207101 L18.5611497,24.5867808 C19.6618669,24.5921938 20.5513144,25.4860261 20.5513144,26.5867566 L20.5513144,32.2263545"  transform="translate(10.275657, 28.373532) rotate(-180.000000) translate(-10.275657, -28.373532) "/><path d="M17.5611516,29.4848403 L3.01301727,14.936706"  transform="translate(10.287084, 22.210773) rotate(-45.000000) translate(-10.287084, -22.210773) "/></g></g></g></g></g></g></g></svg>
+                                                <span>Remove</span>
+                                            </span>
+                                        </button>
+                                    </li>
+                                    <!-- <li class="tab_1_4">
+                                        <button>
+                                            <span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36px" height="36px" viewBox="0 0 36 36" version="1.1"><g  stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g  transform="translate(-425.000000, -201.000000)" fill-rule="nonzero"><g  transform="translate(44.000000, 177.000000)"><g  transform="translate(353.000000, 24.000000)"><path d="M45.3793103,32.8965517 L45.3793103,31.6551724 C45.3793103,31.2827586 45.6275862,31.0344828 46,31.0344828 C46.3724138,31.0344828 46.6206897,31.2827586 46.6206897,31.6551724 L46.6206897,32.8965517 C46.6206897,33.2689655 46.3724138,33.5172414 46,33.5172414 C45.6275862,33.5172414 45.3793103,33.2689655 45.3793103,32.8965517 Z M45.3793103,4.34482759 L45.3793103,3.10344828 C45.3793103,2.73103448 45.6275862,2.48275862 46,2.48275862 C46.3724138,2.48275862 46.6206897,2.73103448 46.6206897,3.10344828 L46.6206897,4.34482759 C46.6206897,4.71724138 46.3724138,4.96551724 46,4.96551724 C45.6275862,4.96551724 45.3793103,4.71724138 45.3793103,4.34482759 Z M31.1034483,17.3793103 L32.3448276,17.3793103 C32.7172414,17.3793103 32.9655172,17.6275862 32.9655172,18 C32.9655172,18.3724138 32.7172414,18.6206897 32.3448276,18.6206897 L31.1034483,18.6206897 C30.7310345,18.6206897 30.4827586,18.3724138 30.4827586,18 C30.4827586,17.6275862 30.7310345,17.3793103 31.1034483,17.3793103 Z M59.6551724,17.3793103 L60.8965517,17.3793103 C61.2689655,17.3793103 61.5172414,17.6275862 61.5172414,18 C61.5172414,18.3724138 61.2689655,18.6206897 60.8965517,18.6206897 L59.6551724,18.6206897 C59.2827586,18.6206897 59.0344828,18.3724138 59.0344828,18 C59.0344828,17.6275862 59.2827586,17.3793103 59.6551724,17.3793103 Z M46,6.20689655 C45.6275862,6.20689655 45.3793103,6.45517241 45.3793103,6.82758621 L45.3793103,14.8965517 C44.137931,15.2689655 42.8965517,16.5103448 42.8965517,18 C42.8965517,19.737931 44.137931,21.1034483 46,21.1034483 C47.4896552,21.1034483 48.7310345,19.862069 48.9793103,18.6206897 L54.5655172,18.6206897 C54.937931,18.6206897 55.1862069,18.3724138 55.1862069,18 C55.1862069,17.6275862 54.937931,17.3793103 54.5655172,17.3793103 L49.1034483,17.3793103 C48.7310345,16.137931 47.862069,15.2689655 46.6206897,14.8965517 L46.6206897,6.95172414 C46.6206897,6.57931034 46.3724138,6.33103448 46,6.33103448 L46,6.20689655 Z M46,16.137931 C46.9931034,16.137931 47.862069,17.0068966 47.862069,18 C47.862069,18.9931034 46.9931034,19.862069 46,19.862069 C45.0068966,19.862069 44.137931,18.9931034 44.137931,18 C44.137931,17.0068966 45.0068966,16.137931 46,16.137931 Z M46,0 C36.0689655,0 28,8.06896552 28,18 C28,27.9310345 36.0689655,36 46,36 C55.9310345,36 64,27.9310345 64,18 C64,8.06896552 55.9310345,0 46,0 Z M46,1.24137931 C55.3103448,1.24137931 62.7586207,8.68965517 62.7586207,18 C62.7586207,27.3103448 55.3103448,34.7586207 46,34.7586207 C36.6896552,34.7586207 29.2413793,27.3103448 29.2413793,18 C29.2413793,8.68965517 36.6896552,1.24137931 46,1.24137931 Z" /></g></g></g></g></svg>
+                                                <span>Speed</span>
+                                            </span>
+                                        </button>
+                                    </li> -->
+                                </ul> 
+                                <ul class="tab_2 single-item">
+                                    <li class="tab_2_1">
+                                        <button>
+                                            <span>
+                                                <img src="img/objects.png" alt="">
+                                            </span>
+                                        </button>
+                                    </li>
+                                </ul>
+                                <ul class="tab_3 single-item">
+                                    <li class="tab_3_1">
+                                        <button>
+                                            <span>
+                                                <img src="img/overlays.png" alt="">
+                                            </span>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="parent_control_tab_play">
+                                <button>
+                                    <span>
+                                        <img src="img/play-tab.png" alt="">
+                                        <span>Play</span>
+                                    </span>
+                                </button>
+                                <button>
+                                    <span>
+                                        <img src="img/pause-tab.png" alt="">
+                                        <span>Pause</span>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="text_tab">
+                        <div class="text_tab_wrapper">
+                            <div class="text_tab_container_back"></div>
+                            <div class="text_tab_container">
+                                <ul>
+                                    <li class="text_tab_1_1">
+                                        <p>Set the movement patterns for the picture. Give life to what was lifeless before.</p>
+                                    </li>
+                                    <li class="text_tab_1_2 text_tab_container_li_active">
+                                        <p>See the animation in its glory. Enjoy the masterpiece you have just created.</p>
+                                    </li>
+                                    <li class="text_tab_1_3">
+                                        <p>Edit the animation and borders in any way you like. Don’t stop until it’s perfect.</p>
+                                    </li>
+                                    <li class="text_tab_1_4">
+                                        <p>Adjust how fast the animation runs. Aim for realism or surreal scenes - it’s up to you.</p>
+                                    </li>
+                                    <li class="text_tab_2_1">
+                                        <p>Browse the library of special effects. Choose any to boost the magic of your image.</p>
+                                    </li>
+                                    <li class="text_tab_3_1">
+                                        <p>Add objects to make the image even better. Scale, move, rotate them in any way.</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="video_presentation">
+        <div class="wrapper">
+            <div class="video_presentation_container">
+                <div class="video_presentation_left">
+                    <div> <img src="img/playIconCopy2.png" alt=""> </div>
+                </div>
+                <div class="video_presentation_right">
+                    <div class="video_presentation_text">
+                        <h4>Get familiar with the interface within 1 minute</h4>
+                        <p>Viespire interface will feel like you’ve just met an old friend. Everything is accessible on the go. Convenient button placement makes every function visible. You won’t get lost in an ocean of settings while using Viespire - the detailed interactive guide will put everything to its place.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="interface" id="yak3">
+        <div class="interface_img s25"> </div>
+        <div class="wrapper">
+            <div class="interface_arrow arrow_an"> <img class="lazy" data-lazy="img/arrow-animate@2x.png" alt=""> </div>
+            <div class="howitworks_title">
+                <h2>Interface</h2>
+                <p>We have created a UI that is simple to navigate and easy to use</p>
+            </div>
+            <div class="interface_content">
+                <div class="interface_phone_img">
+                    <div class="interface_phone_img_block_top">
+                        <div class="interface_phone_img_block_top_block">
+                            <div class="interface_phone_img_block_top_block_1">
+                                <p>Settings</p>
+                                <div class="arrow_mobile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="45px" viewBox="0 0 45 45" version="1.1" class="">
+                                        <defs>
+                                            <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-18">
+                                                <stop stop-color="#FAD961" offset="0%" />
+                                                <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-24">
+                                                <stop stop-color="#FAD961" offset="0%" />
+                                                <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                        </defs>
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g transform="translate(-365.000000, -2908.000000)">
+                                                <g transform="translate(279.000000, 2660.000000)">
+                                                    <g transform="translate(86.000000, 248.000000)">
+                                                        <g>
+                                                            <circle stroke="url(#linearGradient-18)" opacity="0.698058" cx="22.5" cy="22.5" r="22" class="circle_hide" />
+                                                            <circle fill="url(#linearGradient-24)" cx="22.5" cy="22.5" r="13.5" />
+                                                            <path d="M22,17 L22,28.9553119" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" class="circle_hide" />
+                                                            <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" /> </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <div class="arrow_mobile_line"></div>
+                                </div>
+                            </div>
+                            <div class="interface_phone_img_block_top_block_2">
+                                <p>Camera</p>
+                                <div class="arrow_mobile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="45px" viewBox="0 0 45 45" version="1.1" class="">
+                                        <defs>
+                                            <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-19">
+                                                <stop stop-color="#FAD961" offset="0%" />
+                                                <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-27">
+                                                <stop stop-color="#FAD961" offset="0%" />
+                                                <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                        </defs>
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g transform="translate(-365.000000, -2908.000000)">
+                                                <g transform="translate(279.000000, 2660.000000)">
+                                                    <g transform="translate(86.000000, 248.000000)">
+                                                        <g>
+                                                            <circle stroke="url(#linearGradient-19)" opacity="0.698058" cx="22.5" cy="22.5" r="22" class="circle_hide" />
+                                                            <circle fill="url(#linearGradient-27)" cx="22.5" cy="22.5" r="13.5" />
+                                                            <path d="M22,17 L22,28.9553119" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" class="circle_hide" />
+                                                            <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" /> </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <div class="arrow_mobile_line"></div>
+                                </div>
+                            </div>
+                            <div class="interface_phone_img_block_top_block_3">
+                                <p>Camera Roll</p>
+                                <div class="arrow_mobile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="45px" viewBox="0 0 45 45" version="1.1" class="">
+                                        <defs>
+                                            <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-20">
+                                                <stop stop-color="#FAD961" offset="0%" />
+                                                <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-25">
+                                                <stop stop-color="#FAD961" offset="0%" />
+                                                <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                        </defs>
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g transform="translate(-365.000000, -2908.000000)">
+                                                <g transform="translate(279.000000, 2660.000000)">
+                                                    <g transform="translate(86.000000, 248.000000)">
+                                                        <g>
+                                                            <circle stroke="url(#linearGradient-20)" opacity="0.698058" cx="22.5" cy="22.5" r="22" class="circle_hide" />
+                                                            <circle fill="url(#linearGradient-25)" cx="22.5" cy="22.5" r="13.5" />
+                                                            <path d="M22,17 L22,28.9553119" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" class="circle_hide" />
+                                                            <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" /> </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <div class="arrow_mobile_line"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="interface_phone_img_block_left">
+                        <div class="interface_line line_shop">
+                            <p>Settings</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="45px" viewBox="0 0 45 45" version="1.1" class="">
+                                <defs>
+                                    <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-21">
+                                        <stop stop-color="#FAD961" offset="0%" />
+                                        <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-26">
+                                        <stop stop-color="#FAD961" offset="0%" />
+                                        <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                </defs>
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-365.000000, -2908.000000)">
+                                        <g transform="translate(279.000000, 2660.000000)">
+                                            <g transform="translate(86.000000, 248.000000)">
+                                                <g>
+                                                    <circle stroke="url(#linearGradient-21)" opacity="0.698058" cx="22.5" cy="22.5" r="22" class="circle_hide" />
+                                                    <circle fill="url(#linearGradient-26)" cx="22.5" cy="22.5" r="13.5" />
+                                                    <path d="M22,17 L22,28.9553119" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" class="circle_hide" />
+                                                    <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" /> </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="line_line"></div>
+                        </div>
+                        <div class="interface_line line_guide">
+                            <p>Delete</p>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="45px" viewBox="0 0 45 45" version="1.1">
+                                <defs>
+                                    <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-3">
+                                        <stop stop-color="#FAD961" offset="0%" />
+                                        <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-8">
+                                        <stop stop-color="#FAD961" offset="0%" />
+                                        <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                </defs>
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-365.000000, -2908.000000)">
+                                        <g transform="translate(279.000000, 2660.000000)">
+                                            <g transform="translate(86.000000, 248.000000)">
+                                                <g>
+                                                    <circle stroke="url(#linearGradient-3)" opacity="0.698058" cx="22.5" cy="22.5" r="22" class="circle_hide" />
+                                                    <circle fill="url(#linearGradient-8)" cx="22.5" cy="22.5" r="13.5" />
+                                                    <path d="M22,17 L22,28.9553119" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" class="circle_hide" />
+                                                    <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" /> </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="line_line"></div>
+                        </div>
+                    </div>
+                    <div class="interface_phone_img_block_center"> <img data-lazy="img/iPhone_XS.png" alt=""> </div>
+                    <div class="interface_phone_img_block_right">
+                        <div class="interface_line line_camera">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="45px" viewBox="0 0 45 45" version="1.1">
+                                <defs>
+                                    <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-4">
+                                        <stop stop-color="#FAD961" offset="0%" />
+                                        <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-12">
+                                        <stop stop-color="#FAD961" offset="0%" />
+                                        <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                </defs>
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-365.000000, -2908.000000)">
+                                        <g transform="translate(279.000000, 2660.000000)">
+                                            <g transform="translate(86.000000, 248.000000)">
+                                                <g>
+                                                    <circle stroke="url(#linearGradient-4)" opacity="0.698058" cx="22.5" cy="22.5" r="22" class="circle_hide" />
+                                                    <circle fill="url(#linearGradient-12)" cx="22.5" cy="22.5" r="13.5" />
+                                                    <path d="M22,17 L22,28.9553119" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" class="circle_hide" />
+                                                    <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" /> </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="line_line"></div>
+                            <p>Camera Roll</p>
+                        </div>
+                        <div class="interface_line line_settings">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="45px" viewBox="0 0 45 45" version="1.1" class="">
+                                <defs>
+                                    <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-5">
+                                        <stop stop-color="#FAD961" offset="0%" />
+                                        <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-9">
+                                        <stop stop-color="#FAD961" offset="0%" />
+                                        <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                </defs>
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-365.000000, -2908.000000)">
+                                        <g transform="translate(279.000000, 2660.000000)">
+                                            <g transform="translate(86.000000, 248.000000)">
+                                                <g>
+                                                    <circle stroke="url(#linearGradient-5)" opacity="0.698058" cx="22.5" cy="22.5" r="22" class="circle_hide" />
+                                                    <circle fill="url(#linearGradient-9)" cx="22.5" cy="22.5" r="13.5" />
+                                                    <path d="M22,17 L22,28.9553119" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" class="circle_hide" />
+                                                    <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" /> </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="line_line"></div>
+                            <p>Next</p>
+                        </div>
+                        <div class="interface_line line_cam">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="45px" viewBox="0 0 45 45" version="1.1" class="">
+                                <defs>
+                                    <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-6">
+                                        <stop stop-color="#FAD961" offset="0%" />
+                                        <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                    <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-10">
+                                        <stop stop-color="#FAD961" offset="0%" />
+                                        <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                </defs>
+                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g transform="translate(-365.000000, -2908.000000)">
+                                        <g transform="translate(279.000000, 2660.000000)">
+                                            <g transform="translate(86.000000, 248.000000)">
+                                                <g>
+                                                    <circle stroke="url(#linearGradient-6)" opacity="0.698058" cx="22.5" cy="22.5" r="22" class="circle_hide" />
+                                                    <circle fill="url(#linearGradient-10)" cx="22.5" cy="22.5" r="13.5" />
+                                                    <path d="M22,17 L22,28.9553119" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" class="circle_hide" />
+                                                    <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" /> </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            <div class="line_line"></div>
+                            <p>Camera</p>
+                        </div>
+                    </div>
+                    <div class="interface_phone_img_block_bottom">
+                        <div class="interface_phone_img_block_bottom_block">
+                            <div class="interface_phone_img_block_bottom_block_1">
+                                <div class="arrow_mobile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="45px" viewBox="0 0 45 45" version="1.1" class="">
+                                        <defs>
+                                            <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-11">
+                                                <stop stop-color="#FAD961" offset="0%" />
+                                                <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-22">
+                                                <stop stop-color="#FAD961" offset="0%" />
+                                                <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                        </defs>
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g transform="translate(-365.000000, -2908.000000)">
+                                                <g transform="translate(279.000000, 2660.000000)">
+                                                    <g transform="translate(86.000000, 248.000000)">
+                                                        <g>
+                                                            <circle stroke="url(#linearGradient-11)" opacity="0.698058" cx="22.5" cy="22.5" r="22" class="circle_hide" />
+                                                            <circle fill="url(#linearGradient-22)" cx="22.5" cy="22.5" r="13.5" />
+                                                            <path d="M22,17 L22,28.9553119" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" class="circle_hide" />
+                                                            <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" /> </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <div class="arrow_mobile_line"></div>
+                                </div>
+                                <p>Delete</p>
+                            </div>
+                            <div class="interface_phone_img_block_bottom_block_3">
+                                <div class="arrow_mobile">
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="45px" height="45px" viewBox="0 0 45 45" version="1.1" class="">
+                                        <defs>
+                                            <linearGradient x1="100%" y1="0%" x2="0%" y2="104.974844%" id="linearGradient-17">
+                                                <stop stop-color="#FAD961" offset="0%" />
+                                                <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                            <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-23">
+                                                <stop stop-color="#FAD961" offset="0%" />
+                                                <stop stop-color="#F76B1C" offset="100%" /> </linearGradient>
+                                        </defs>
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <g transform="translate(-365.000000, -2908.000000)">
+                                                <g transform="translate(279.000000, 2660.000000)">
+                                                    <g transform="translate(86.000000, 248.000000)">
+                                                        <g>
+                                                            <circle stroke="url(#linearGradient-17)" opacity="0.698058" cx="22.5" cy="22.5" r="22" class="circle_hide" />
+                                                            <circle fill="url(#linearGradient-23)" cx="22.5" cy="22.5" r="13.5" />
+                                                            <path d="M22,17 L22,28.9553119" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" class="circle_hide" />
+                                                            <path d="M27.9553119,23 L16,23 L27.9553119,23 Z" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" fill-rule="nonzero" /> </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    <div class="arrow_mobile_line"></div>
+                                </div>
+                                <p>Next</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+    <div class="elfsight-app-e678bbbb-e035-4ced-9008-06de24d5eea6"></div> -->
+    <div class="instagram_feed">
+        <div class="instagram_feed_title">
+            <p>Use #viespire tag to be featured</p>
+        </div>
+        <div id="instafeed"></div>
+    </div>
+    
+
+    <div class="comments">
+        <div class="wrapper">
+            <div class="comments_block">
+                <div class="comments_block_left s40">
+                    <div class="comments_block_left_title">
+                        <h2>People Love Viespire</h2></div>
+                    <div class="comments_block_left_text">
+                        <p>We gain our energy from what you have to say. We value your opinion and use every feedback to make Viespire even better. For you.</p>
+                    </div>
+                </div>
+                <div class="comment_block_middle arrow_block s10"> </div>
+                <div class="comment_block_right block_of_comment">
+                    <div class="multiple-items">
+                        <div class="com_block">
+                            <div class="com_cont">
+                                <div class="com_cont_title">
+                                    <div class="com_cont_title_left">
+                                        <div class="com_cont_title_left_ava"> <img data-lazy="img/ava_user_1.png" alt=""> </div>
+                                        <div class="com_cont_title_left_name"> Donna </div>
+                                    </div>
+                                    <div class="com_cont_title_right">
+                                        <div class="com_cont_title_right_soc_icon"> <img data-lazy="img/fb_svg.svg" alt=""> </div>
+                                    </div>
+                                </div>
+                                <div class="com_cont_text"> I always thought my pictures were good enough, but Viespire showed me that they can be even better. Amazing app that makes every photo a bit more magical. </div>
+                            </div>
+                        </div>
+                        <div class="com_block">
+                            <div class="com_cont">
+                                <div class="com_cont_title">
+                                    <div class="com_cont_title_left">
+                                        <div class="com_cont_title_left_ava"> <img data-lazy="img/ava_user_4.png" alt=""> </div>
+                                        <div class="com_cont_title_left_name"> Dan </div>
+                                    </div>
+                                    <div class="com_cont_title_right">
+                                        <div class="com_cont_title_right_soc_icon"> <img data-lazy="img/inst.svg" alt=""> </div>
+                                    </div>
+                                </div>
+                                <div class="com_cont_text"> The animation on Viespire is surreal. I can turn every picture of mine into a short movie that looks astonishing. </div>
+                            </div>
+                        </div>
+                        <div class="com_block">
+                            <div class="com_cont">
+                                <div class="com_cont_title">
+                                    <div class="com_cont_title_left">
+                                        <div class="com_cont_title_left_ava"> <img data-lazy="img/ava_user_2.png" alt=""> </div>
+                                        <div class="com_cont_title_left_name"> Jennifer </div>
+                                    </div>
+                                    <div class="com_cont_title_right">
+                                        <div class="com_cont_title_right_soc_icon"> <img data-lazy="img/tw_svg.svg" alt=""> </div>
+                                    </div>
+                                </div>
+                                <div class="com_cont_text"> My social media profiles grew 200% because how good were the pictures edited by Viespire. It truly turned them into a masterpiece. </div>
+                            </div>
+                        </div>
+                        <div class="com_block">
+                            <div class="com_cont">
+                                <div class="com_cont_title">
+                                    <div class="com_cont_title_left">
+                                        <div class="com_cont_title_left_ava"> <img data-lazy="img/ava_user_3.png" alt=""> </div>
+                                        <div class="com_cont_title_left_name"> Amanda </div>
+                                    </div>
+                                    <div class="com_cont_title_right">
+                                        <div class="com_cont_title_right_soc_icon"> <img data-lazy="img/inst.svg" alt=""> </div>
+                                    </div>
+                                </div>
+                                <div class="com_cont_text"> I’ve never seen such beautiful waterfall pictures as mine now. Viespire really made my travel memories come to life. </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="yak4">
+        <div class="footer_img s30"></div>
+        <div class="wrapper">
+            <div class="footer_arrow arrow_an"> <img class="lazy" data-lazy="img/arrow-animate@2x.png" alt=""> </div>
+            <div class="footer_content">
+                <div class="footer_title">
+                    <h4>Ask away. We’ll find an answer.</h4>
+                    <p>Give us a pat on the back, get more info on the app or send your improvements suggestions. We’d like to hear what you have to say.</p>
+                </div>
+                <div class="footer_form">
+                    <div id="subscribe" class="div_for_form">
+                        <input type="email" placeholder="Your email address">
+                        <button type="button"><span>Subscribe</span><img class="lazy" data-lazy="img/send-icon@2x.png" alt=""></button>
+                    </div>
+                </div>
+                <div class="footer_social">
+                    <ul>
+                        <li>
+                            <a href="https://facebook.com/viespire">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26px" height="26px" viewBox="0 0 26 26" version="1.1">
+                                    <defs/>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.495290179" stroke-linecap="round" stroke-linejoin="round">
+                                        <g transform="translate(-650.000000, -4449.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                                            <g transform="translate(387.000000, 4189.000000)">
+                                                <g transform="translate(264.000000, 261.000000)">
+                                                    <path d="M22.56,0 L1.44,0 C0.64416,0 0,0.64416 0,1.44 L0,22.56 C0,23.35584 0.64416,24 1.44,24 L12.48,24 L12.48,16.32 L9.6,16.32 L9.6,12.48 L12.48,12.48 L12.48,9.6 C12.48,6.94944 14.62944,4.8 17.28,4.8 L20.16,4.8 L20.16,8.64 L18.24,8.64 C17.18016,8.64 16.32,9.50016 16.32,10.56 L16.32,12.48 L20.16,12.48 L19.68,16.32 L16.32,16.32 L16.32,24 L22.56,24 C23.35584,24 24,23.35584 24,22.56 L24,1.44 C24,0.64416 23.35584,0 22.56,0 Z"  /> </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/viespire.app/">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="26px" height="26px" viewBox="0 0 26 26" version="1.1">
+                                    <defs/>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.495290179" stroke-linecap="round" stroke-linejoin="round">
+                                        <g transform="translate(-704.000000, -4449.000000)" stroke="#FFFFFF" stroke-width="2">
+                                            <g transform="translate(387.000000, 4189.000000)">
+                                                <g transform="translate(264.000000, 261.000000)">
+                                                    <g  transform="translate(54.000000, 0.000000)">
+                                                        <path d="M24,18.24 C24,21.42048 21.42048,24 18.24,24 L5.76,24 C2.57952,24 0,21.42048 0,18.24 L0,5.76 C0,2.57952 2.57952,0 5.76,0 L18.24,0 C21.42048,0 24,2.57952 24,5.76 L24,18.24 Z"  />
+                                                        <path d="M18,12 C18,15.3138462 15.3138462,18 12,18 C8.68615385,18 6,15.3138462 6,12 C6,8.68615385 8.68615385,6 12,6 C15.3138462,6 18,8.68615385 18,12 Z"  />
+                                                        <path d="M21,4 C21,4.552 20.552,5 20,5 C19.448,5 19,4.552 19,4 C19,3.448 19.448,3 20,3 C20.552,3 21,3.448 21,4 Z"  /> </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/viespire">
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="31px" height="26px" viewBox="0 0 31 26" version="1.1">
+                                    <defs/>
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.495290179" stroke-linecap="round" stroke-linejoin="round">
+                                        <g transform="translate(-759.000000, -4449.000000)" fill="#FFFFFF" stroke="#FFFFFF">
+                                            <g transform="translate(387.000000, 4189.000000)">
+                                                <g transform="translate(264.000000, 261.000000)">
+                                                    <path d="M109.956207,1.26260808 C112.467931,4.35025875 116.964828,7.26469211 123,7.57877892 C122.666897,6.23791001 122.634828,2.59721613 125.266552,1.08521686 C126.443793,0.407999801 127.557931,0 128.869655,0 C130.518621,0 131.872759,0.546782342 133.312759,1.87930343 C134.483793,1.71443395 136.673793,0.80347787 137.193103,0.445565 C136.854828,1.70086874 135.501724,3.31304186 134.524138,3.6959982 C135.422069,3.69391124 137.394828,3.17425932 138,2.86747686 C137.161034,4.17391101 135.696207,5.42399736 134.894483,5.9426058 C135.822414,13.9888628 128.417586,23.9895535 117.782069,23.9999883 C114.744828,24.0031187 111.444828,23.3780756 108,21.4737287 C111.398276,21.858772 115.039655,20.7923377 117.130345,18.947469 C114.493448,18.8890343 111.823448,17.1683395 110.608966,14.5262538 C111.93,14.9238188 113.147586,15.1262535 113.869655,14.5262538 C112.638621,14.3926886 108.651724,12.2775592 108.651724,8.18190906 C109.568276,8.9165174 110.887241,9.67512572 111.913448,9.47373452 C110.235517,8.51060455 107.796207,4.84695416 109.956207,1.26260808 Z"  /> </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer_privacy">
+                    <ul>
+                        <li><a href="mailto:support@viespire.app"><span>Contact Us</span></a></li>
+                        <li><a href="/privacy-policy/"><span>Privacy Policy</span></a></li>
+                        <li><a href="/terms-of-use/"><span>Terms of Use</span></a></li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <h5>Copyright © 2018 Viespire. All Rights Reserved.</h5> </div>
+            </div>
+        </div>
+    </footer>
+    <div class="pop_up_video">
+        <div class="pop_up_video_bg"></div>
+        <div class="pop_up_video_container">
+            <video data-lazy="video/intro_2.mp4" controls="controls" poster="img/intro_2.png"></video>
+        </div>
+    </div>
+    <a class="to_top" href="#yak1"><img src="img/arrow-pointing-north-west.svg" alt=""></a>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/main-jscript.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+</body>
+</html>
